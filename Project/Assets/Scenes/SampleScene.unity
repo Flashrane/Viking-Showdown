@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.65
+      value: 0.41999996
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -409,7 +409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.44
+      value: 0.63
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -466,7 +466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.65
+      value: 0.41999996
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -523,7 +523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.61192346
+      value: 0.45807648
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -580,7 +580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.58
+      value: 0.48999995
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -793,6 +793,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
+  animator: {fileID: 2125441764}
   attackRange: 2.3
   attackSpeed: 3
   attackPower: 25

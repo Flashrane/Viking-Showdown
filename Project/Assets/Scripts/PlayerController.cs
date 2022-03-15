@@ -4,22 +4,31 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rbPlayer;
     public CamFollowPlayer camFollow;
-    public Animator animator;
     
-    Rigidbody2D rbEnemy;
-
     public float movementSpeed = 330.0f;
     float dodgeForce = 2f;
     float rollForce = 1.3f;
     float nextDodgeTime = 0f;
     float nextRollBackTime = 0f;
-
     Vector2 movement;
+
+    Animator animator;
+    string currentState;
+    const string PLAYER_IDLE = "Player_Idle";
+    const string PLAYER_WALK = "Player_Walk";
+    const string PLAYER_DODGE_LEFT = "Player_Dodge_Left";
+    const string PLAYER_DODGE_RIGHT = "Player_Dodge_Right";
+    const string PLAYER_ROLLBACK = "Player_Rollback";
+
+    Rigidbody2D rbEnemy;
 
     void Awake()
     {
-        rbPlayer = GetComponent<Rigidbody2D>();
+        rbPlayer = this.GetComponent<Rigidbody2D>();
         rbEnemy = null;
+
+        animator = this.GetComponent<Animator>();
+        ChangeAnimationState(PLAYER_IDLE);
 
         camFollow.enabled = false;
     }
@@ -30,11 +39,10 @@ public class PlayerController : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
         movement = movement.normalized;
 
-        if (movement.y != 0)
-            animator.SetFloat("movementSpeed", Mathf.Abs(movement.y));
+        if (movement.x != 0 || movement.y != 0)
+            ChangeAnimationState(PLAYER_WALK);
         else
-            animator.SetFloat("movementSpeed", Mathf.Abs(movement.x));
-
+            ChangeAnimationState(PLAYER_IDLE);
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -80,6 +88,15 @@ public class PlayerController : MonoBehaviour
         }
         
         // play roll animation
+    }
+
+    void ChangeAnimationState(string newState)
+    {
+        if (currentState == newState)
+            return;
+
+        animator.Play(newState);
+        currentState = newState;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
