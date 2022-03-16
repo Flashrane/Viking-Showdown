@@ -11,7 +11,6 @@ public class AnimationManager : MonoBehaviour
     public readonly string PLAYER_WALK = "Player_Walk";
     public readonly string PLAYER_DODGE_LEFT = "Player_Dodge_Left";
     public readonly string PLAYER_DODGE_RIGHT = "Player_Dodge_Right";
-    public readonly string PLAYER_ROLLBACK = "Player_Rollback";
     public readonly string PLAYER_ATTACK = "Player_Attack";
 
     public void ChangeAnimationState(string newState)

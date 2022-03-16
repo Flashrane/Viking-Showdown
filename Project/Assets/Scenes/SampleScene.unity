@@ -140,11 +140,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.869461
+      value: 4.7599998
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.41999996
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -405,11 +405,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.27
+      value: 0.109999925
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.63
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -462,11 +462,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.52
+      value: 2.36
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.41999996
+      value: 1.4399999
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -519,11 +519,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.5309925
+      value: -4.72
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.45807648
+      value: 1.14
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -576,11 +576,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.01
+      value: -2.17
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.48999995
+      value: 1.51
       objectReference: {fileID: 0}
     - target: {fileID: 3315648608052645468, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -720,8 +720,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rbPlayer: {fileID: 2125441762}
   camFollow: {fileID: 519420030}
+  combatInfo: {fileID: 2125441765}
   animator: {fileID: 2125441766}
   movementSpeed: 330
+  dodgeForce: 2
 --- !u!50 &2125441762
 Rigidbody2D:
   serializedVersion: 4
@@ -794,10 +796,11 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
-  animator: {fileID: 0}
+  animator: {fileID: 2125441766}
   attackRange: 2.3
   attackSpeed: 3
   attackPower: 25
+  isAttacking: 0
 --- !u!114 &2125441766
 MonoBehaviour:
   m_ObjectHideFlags: 0

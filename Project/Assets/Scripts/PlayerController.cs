@@ -4,13 +4,12 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rbPlayer;
     public CamFollowPlayer camFollow;
+    public PlayerCombat combatInfo;
     public AnimationManager animator;
 
-    public float movementSpeed = 330.0f;
-    float dodgeForce = 2f;
-    float rollForce = 1.3f;
+    [SerializeField] float movementSpeed = 330.0f;
+    [SerializeField] float dodgeForce = 2f;
     float nextDodgeTime = 0f;
-    float nextRollBackTime = 0f;
     Vector2 movement;
     Rigidbody2D rbEnemy;
 
@@ -32,7 +31,8 @@ public class PlayerController : MonoBehaviour
 
         if (movement.x != 0 || movement.y != 0)
         {
-            animator.ChangeAnimationState(animator.PLAYER_WALK);
+            if (!combatInfo.isAttacking)
+                animator.ChangeAnimationState(animator.PLAYER_WALK);
 
             if (movement.x == 0 && movement.y > 0)
                 rbPlayer.rotation = 0f;
@@ -51,15 +51,12 @@ public class PlayerController : MonoBehaviour
             else if (movement.x < 0 && movement.y > 0)
                 rbPlayer.rotation = 45f;
         }
-        else
+        else if (!combatInfo.isAttacking)
             animator.ChangeAnimationState(animator.PLAYER_IDLE);
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            if (movement.x != 0 && movement.y >= 0)
-                Dodge();
-            else
-                RollBack();
+            Dodge();
         }
 
         if (Input.GetKeyDown(KeyCode.C))
@@ -87,17 +84,6 @@ public class PlayerController : MonoBehaviour
         }
 
         // play dodge animation
-    }
-
-    void RollBack()
-    {
-        if (Time.time >= nextRollBackTime)
-        {
-            rbPlayer.AddForce(new Vector2(0, movement.y) * rollForce, ForceMode2D.Impulse);
-            nextRollBackTime = Time.time + 0.3f;
-        }
-        
-        // play roll animation
     }
 
     void OnCollisionEnter2D(Collision2D collision)

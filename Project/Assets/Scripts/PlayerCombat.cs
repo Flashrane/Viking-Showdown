@@ -11,11 +11,12 @@ public class PlayerCombat : MonoBehaviour
     GameObject playerAttackPoint;
     Rigidbody2D rbPlayer;
 
-    public float attackRange = 2.3f;
-    public float attackSpeed = 3f;
+    [SerializeField] public float attackRange = 2.3f;
+    [SerializeField] public float attackSpeed = 3f;
     public int attackPower = 25;
     float nextAttackTime = 0f;
-    float lastHitTime = 0f;
+
+    public bool isAttacking = false;
 
     void Start()
     {
@@ -30,17 +31,18 @@ public class PlayerCombat : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Attack();
-                nextAttackTime = Time.time + 1f / attackSpeed;
+                nextAttackTime = Time.time + (1f / attackSpeed);
             }
         }
-        else if (Time.time >= lastHitTime + 0.1f)
-            rbPlayer.rotation = 0; // look forward
     }
 
     void Attack()
     {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        Debug.Log("Attack");
+        isAttacking = true;
+        animator.ChangeAnimationState(animator.PLAYER_ATTACK);
 
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         if (hitEnemies.Length != 0)
         {
             int closestIdx = 0;
@@ -58,10 +60,15 @@ public class PlayerCombat : MonoBehaviour
             enemyScript.TakeDamage(attackPower);
             enemyScript.KnockBack(rbEnemy.position - rbPlayer.position, attackPower * (rbPlayer.velocity.magnitude + 1f));
 
-            animator.ChangeAnimationState(animator.PLAYER_ATTACK);
-
             Debug.Log(hitEnemies[closestIdx].name + " got hit.");
         }
+
+        Invoke("AttackCompleted", 1f / attackSpeed);
+    }
+
+    void AttackCompleted()
+    {
+        isAttacking = false;
     }
 
     int FindClosestEnemy(Collider2D[] hitEnemies)
@@ -87,7 +94,6 @@ public class PlayerCombat : MonoBehaviour
         Vector2 lookDir = enemy.GetComponent<Rigidbody2D>().position - rbPlayer.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rbPlayer.rotation = angle;
-        lastHitTime = Time.time;
     }
 
     void OnDrawGizmosSelected()
