@@ -6,10 +6,10 @@ public class PlayerCombat : MonoBehaviour
 {
     public Transform attackPoint;
     public LayerMask enemyLayers;
+    public AnimationManager animator;
     
     GameObject playerAttackPoint;
     Rigidbody2D rbPlayer;
-    Animator animator;
 
     public float attackRange = 2.3f;
     public float attackSpeed = 3f;
@@ -17,14 +17,10 @@ public class PlayerCombat : MonoBehaviour
     float nextAttackTime = 0f;
     float lastHitTime = 0f;
 
-    string currentState;
-    const string PLAYER_ATTACK = "Player_Attack";
-
     void Start()
     {
         rbPlayer = this.GetComponent<Rigidbody2D>();
         playerAttackPoint = GameObject.Find("Player").transform.GetChild(0).gameObject;
-        animator = this.GetComponent<Animator>();
     }
 
     void Update()
@@ -62,7 +58,7 @@ public class PlayerCombat : MonoBehaviour
             enemyScript.TakeDamage(attackPower);
             enemyScript.KnockBack(rbEnemy.position - rbPlayer.position, attackPower * (rbPlayer.velocity.magnitude + 1f));
 
-            ChangeAnimationState(PLAYER_ATTACK);
+            animator.ChangeAnimationState(animator.PLAYER_ATTACK);
 
             Debug.Log(hitEnemies[closestIdx].name + " got hit.");
         }
@@ -92,15 +88,6 @@ public class PlayerCombat : MonoBehaviour
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rbPlayer.rotation = angle;
         lastHitTime = Time.time;
-    }
-
-    void ChangeAnimationState(string newState)
-    {
-        if (currentState == newState)
-            return;
-
-        animator.Play(newState);
-        currentState = newState;
     }
 
     void OnDrawGizmosSelected()
