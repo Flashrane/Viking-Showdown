@@ -6,7 +6,8 @@ public class PlayerCombat : MonoBehaviour
 {
     public Transform attackPoint;
     public LayerMask enemyLayers;
-    public AnimationManager animator;
+    public AnimationManager playerAnimator;
+    public AnimationManager axeAnimator;
     
     GameObject playerAttackPoint;
     Rigidbody2D rbPlayer;
@@ -40,7 +41,8 @@ public class PlayerCombat : MonoBehaviour
     {
         Debug.Log("Attack");
         isAttacking = true;
-        animator.ChangeAnimationState(animator.PLAYER_ATTACK);
+        playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_ATTACK);
+        axeAnimator.ChangeAnimationState(axeAnimator.AXE_ATTACK);
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         if (hitEnemies.Length != 0)
@@ -69,6 +71,7 @@ public class PlayerCombat : MonoBehaviour
     void AttackCompleted()
     {
         isAttacking = false;
+        axeAnimator.ChangeAnimationState(axeAnimator.AXE_IDLE);
     }
 
     int FindClosestEnemy(Collider2D[] hitEnemies)
