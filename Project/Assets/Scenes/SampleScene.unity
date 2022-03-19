@@ -362,7 +362,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8.670949
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -732,7 +732,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125441758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.12, y: -3, z: -0.843}
+  m_LocalPosition: {x: -0.12, y: -5.27, z: -0.843}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 947993995}
@@ -832,7 +832,7 @@ MonoBehaviour:
     m_Bits: 64
   playerAnimator: {fileID: 2125441766}
   axeAnimator: {fileID: 514537986}
-  attackRange: 2.3
+  attackRange: 1.6
   attackSpeed: 3
   attackPower: 25
   isAttacking: 0

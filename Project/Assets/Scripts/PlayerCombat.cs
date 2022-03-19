@@ -12,7 +12,7 @@ public class PlayerCombat : MonoBehaviour
     GameObject playerAttackPoint;
     Rigidbody2D rbPlayer;
 
-    [SerializeField] public float attackRange = 2.3f;
+    [SerializeField] public float attackRange = 1.6f;
     [SerializeField] public float attackSpeed = 3f;
     public int attackPower = 25;
     float nextAttackTime = 0f;
