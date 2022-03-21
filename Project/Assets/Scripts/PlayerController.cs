@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public AnimationManager axeAnimator;
 
     [SerializeField] float movementSpeed = 330.0f;
-    [SerializeField] float dodgeForce = 3f;
+    [SerializeField] float dodgeForce = 4f;
     float dodgeCoolDown = 0.3f;
     float nextDodgeTime = 0f;
     Vector2 movement;
@@ -85,12 +85,19 @@ public class PlayerController : MonoBehaviour
     void Dodge()
     {
         isDodging = true;
-        if (movement.x >= 0)
+        if ((rbPlayer.rotation == 0f && movement.x > 0) ||
+            (rbPlayer.rotation == -90f && movement.y < 0) ||
+            (rbPlayer.rotation == -180f && movement.x < 0) ||
+            (rbPlayer.rotation == 90f && movement.y > 0) ||
+            (movement.x == 0 || movement.y == 0))
         {
             playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_DODGE_RIGHT);
             axeAnimator.ChangeAnimationState(axeAnimator.AXE_DODGE_RIGHT);
         }
-        else
+        else if ((rbPlayer.rotation == 0f && movement.x < 0) ||
+            (rbPlayer.rotation == -90f && movement.y > 0) ||
+            (rbPlayer.rotation == -180f && movement.x > 0) ||
+            (rbPlayer.rotation == 90f && movement.y < 0))
         {
             playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_DODGE_LEFT);
             axeAnimator.ChangeAnimationState(axeAnimator.AXE_DODGE_LEFT);
