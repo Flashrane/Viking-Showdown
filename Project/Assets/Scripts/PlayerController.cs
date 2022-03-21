@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public AnimationManager axeAnimator;
 
     [SerializeField] float movementSpeed = 330.0f;
-    [SerializeField] float dodgeForce = 2f;
+    [SerializeField] float dodgeForce = 3f;
     float dodgeCoolDown = 0.3f;
     float nextDodgeTime = 0f;
     Vector2 movement;
@@ -40,20 +40,12 @@ public class PlayerController : MonoBehaviour
 
             if (movement.x == 0 && movement.y > 0)
                 rbPlayer.rotation = 0f;
-            else if (movement.x > 0 && movement.y > 0)
-                rbPlayer.rotation = -45f;
             else if (movement.x > 0 && movement.y == 0)
                 rbPlayer.rotation = -90f;
-            else if (movement.x > 0 && movement.y < 0)
-                rbPlayer.rotation = -135f;
             else if (movement.x == 0 && movement.y < 0)
                 rbPlayer.rotation = -180f;
-            else if (movement.x < 0 && movement.y < 0)
-                rbPlayer.rotation = 135f;
             else if (movement.x < 0 && movement.y == 0)
                 rbPlayer.rotation = 90f;
-            else if (movement.x < 0 && movement.y > 0)
-                rbPlayer.rotation = 45f;
             
             if (Input.GetKeyDown(KeyCode.Z))
             {
