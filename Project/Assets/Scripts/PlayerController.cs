@@ -5,20 +5,24 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rbPlayer;
     public CamFollowPlayer camFollow;
     public PlayerCombat combatInfo;
-    public AnimationManager animator;
+    public AnimationManager playerAnimator;
+    public AnimationManager axeAnimator;
 
     [SerializeField] float movementSpeed = 330.0f;
     [SerializeField] float dodgeForce = 2f;
+    float dodgeCoolDown = 0.3f;
     float nextDodgeTime = 0f;
     Vector2 movement;
     Rigidbody2D rbEnemy;
+
+    public bool isDodging = false;
 
     void Awake()
     {
         rbPlayer = this.GetComponent<Rigidbody2D>();
         rbEnemy = null;
 
-        animator.ChangeAnimationState(animator.PLAYER_IDLE);
+        playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_IDLE);
 
         camFollow.enabled = false;
     }
@@ -31,8 +35,8 @@ public class PlayerController : MonoBehaviour
 
         if (movement.x != 0 || movement.y != 0)
         {
-            if (!combatInfo.isAttacking)
-                animator.ChangeAnimationState(animator.PLAYER_WALK);
+            if (!combatInfo.isAttacking && !isDodging)
+                playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_WALK);
 
             if (movement.x == 0 && movement.y > 0)
                 rbPlayer.rotation = 0f;
@@ -50,13 +54,19 @@ public class PlayerController : MonoBehaviour
                 rbPlayer.rotation = 90f;
             else if (movement.x < 0 && movement.y > 0)
                 rbPlayer.rotation = 45f;
+            
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                if (Time.time >= nextDodgeTime)
+                {
+                    Dodge();
+                    nextDodgeTime = Time.time + dodgeCoolDown;
+                }
+            }
         }
-        else if (!combatInfo.isAttacking)
-            animator.ChangeAnimationState(animator.PLAYER_IDLE);
-
-        if (Input.GetKeyDown(KeyCode.Z))
+        else if (!combatInfo.isAttacking && !isDodging)
         {
-            Dodge();
+            playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_IDLE);
         }
 
         if (Input.GetKeyDown(KeyCode.C))
@@ -67,6 +77,11 @@ public class PlayerController : MonoBehaviour
                 camFollow.enabled = true;
         }
 
+        if (isDodging && combatInfo.isAttacking)
+        {
+            CancelInvoke("DodgeCompleted");
+            DodgeCompleted();
+        }
     }
 
     void FixedUpdate()
@@ -77,13 +92,27 @@ public class PlayerController : MonoBehaviour
 
     void Dodge()
     {
-        if (Time.time >= nextDodgeTime)
+        isDodging = true;
+        if (movement.x >= 0)
         {
-            rbPlayer.AddForce(movement * dodgeForce, ForceMode2D.Impulse);
-            nextDodgeTime = Time.time + 0.3f;
+            playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_DODGE_RIGHT);
+            axeAnimator.ChangeAnimationState(axeAnimator.AXE_DODGE_RIGHT);
         }
+        else
+        {
+            playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_DODGE_LEFT);
+            axeAnimator.ChangeAnimationState(axeAnimator.AXE_DODGE_LEFT);
+        }
+        
+        rbPlayer.AddForce(movement * dodgeForce, ForceMode2D.Impulse);
 
-        // play dodge animation
+        Invoke("DodgeCompleted", dodgeCoolDown);
+    }
+
+    void DodgeCompleted()
+    {
+        isDodging = false;
+        axeAnimator.ChangeAnimationState(axeAnimator.AXE_IDLE);
     }
 
     void OnCollisionEnter2D(Collision2D collision)

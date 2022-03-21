@@ -15,6 +15,8 @@ public class AnimationManager : MonoBehaviour
 
     public readonly string AXE_IDLE = "Axe_Idle";
     public readonly string AXE_ATTACK = "Axe_Attack";
+    public readonly string AXE_DODGE_LEFT = "Axe_Dodge_Left";
+    public readonly string AXE_DODGE_RIGHT = "Axe_Dodge_Right";
 
     public void ChangeAnimationState(string newState)
     {

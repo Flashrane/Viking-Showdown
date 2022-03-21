@@ -6,6 +6,7 @@ public class PlayerCombat : MonoBehaviour
 {
     public Transform attackPoint;
     public LayerMask enemyLayers;
+    public PlayerController movementInfo;
     public AnimationManager playerAnimator;
     public AnimationManager axeAnimator;
     
@@ -34,6 +35,12 @@ public class PlayerCombat : MonoBehaviour
                 Attack();
                 nextAttackTime = Time.time + (1f / attackSpeed);
             }
+        }
+        
+        if (movementInfo.isDodging && isAttacking)
+        {
+            CancelInvoke("AttackCompleted");
+            AttackCompleted();
         }
     }
 

@@ -755,7 +755,8 @@ MonoBehaviour:
   rbPlayer: {fileID: 2125441762}
   camFollow: {fileID: 519420030}
   combatInfo: {fileID: 2125441765}
-  animator: {fileID: 2125441766}
+  playerAnimator: {fileID: 2125441766}
+  axeAnimator: {fileID: 514537986}
   movementSpeed: 330
   dodgeForce: 2
 --- !u!50 &2125441762
@@ -830,6 +831,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
+  movementInfo: {fileID: 2125441761}
   playerAnimator: {fileID: 2125441766}
   axeAnimator: {fileID: 514537986}
   attackRange: 1.6
