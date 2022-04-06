@@ -169,8 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2125441760}
-  speed: 200
-  nextWaypointDistance: 3
+  speed: 1000
+  nextWaypointDistance: 1
 --- !u!1 &459240202
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,7 +535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1245975103538306679, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_LinearDrag
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2922721144471429979, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_Name
@@ -799,7 +799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAQIexSemX+hQIAAD4FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1zmzAQ/SsenYsH8Ae4t5Y4Tg9JPHE7uXCRYTEaC4mRRGwn4//elQBD3VOUt7tv375d/EWY0DVkRqqNYvmzzIF8nxD7Jt8mQ/AJzvQgxY59Qp/zznJT2iTqct6oYRLxwJZpWYFRLPshDtwm+wg2ghVSVev8AInURiNcUK4BQ0oaWy0Q+pqQM/7xVrbkgq8wsq9PfK38yRWfGQgDapw6XcyW0Xy29vyoK/IW02gWhEEUB4jGHYE3m4bBIg7CaLn2grlja0TGaVVDbkcbSMNlxxQsXZrAobsMO2AmOWe6U0zMpXaOJLTWDc6LCTmj6ICTGUxnCJTADqWxzOPy16LQYDqDFL08MIVWtrzkp2z9rag+tso+KG+chDB2qlrS5//iXuDChZLVU9838G0PU7Ls+EYvGdVmtIAx/DCS7gw6UX6kew7vJYgXuVGyETkGjWpsaaMhfBj+vY2WlJAdRy1arT3aF9eD5f3C+3XbIa5u/HPCWbW3oem8BXZcOsvdlYDC5fxCxe6GdEeBqJXxR8NvehgfWxd4ZEobDHVjCitvLxtlU8namWbHaUwilQAHd6JrEJSbyxZpzP0O72KjtneRR2o/q655F+u/lrsSBw/5vn8X2srTbVu6lKdn0OVrYzgTMIi2gRf0KZFCtCc29qQv2zWqoNmo7NCw/N/bIlGwygK6z/ZhHEMUz71otVyGs3wRx1G094MlccfHBM5J+bYV2tmDWxMDucBD639tJhtFa3fuuaKnDfus5FggE4XcZQpAvLYUN+WgsAt+mfk6Z+jQDoxhwi2cfKWEy+wIeXrrmbpR12ejaDqwpKRmH9JYJCWJ+31JiYVv17xV8MHgZJv3ZFdy/QtQSwMEFAAACAgAABAh7PWHmddtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJK5oWWyYWJScpKRhUWquYWJrrmlmZmRcYqphYW5eZKBoZlSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAABAh7FJ6Zf6FAgAAPgUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAABAh7PWHmddtAAAAeAAAAAkAJAAAAAAAAAAAAAAA0gIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAACKAwAAAAA=
+    dataString: UEsDBBQAAAgIAAAQIezyhfRSaQIAACMFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMFy2jAQ/RVG58LYhGDorXUI6SEJE9rJxRchrbEGWfJIcoBk+PeuZINd94R4b9/u29XKX0QoWwFz2qyN4M+aA/k+Iv5Mvo068glOdK/VVnzCNeZdcFf4IBpi3qgTGvHYy6wuwRnBfqi99MERgrUSuTbliu8h1dZZhHMqLSBltPNqhdDXiJzwZ7z0kjOepok/feJpGY0ueGSgHJh+6OT+bp7M7lbjKGlFV0mjqBWTtKyAe/udcDpvo+N5CFPYWBvhm2BaSmFbV8Sdq9B1SitbY08YwAXFLoOVeOIrFyD2hfOZ+/LXPLfgWlOGnh+EwXE1eclP3cywpPbQOPugsg4Wpovgqkn6/B8/jgOdG10+XevGka/hCsEOb/TMqHW9Iffhh571MKAjlQe6k/BegHrRa6NrxZF0pvbS2sL0oft7ay0tgB06vLE6AOuqm3g0uB7fwyV0f0qlKHeemswaYCt1mHhYBDB4N7/QcFgT26ZA1Lv4Y+E33ff3qSUehbEOqbZL5e3tdG18KFmFmfluapdqoyDArekKFJXuvME0bniFA65XdsA8Uv9y2uItd30QA0mAu/goGlAbfbxdli308Rls8Vo7KVQ/mWdecFCpVqpZMTtgvW5bm5yyvm5fC/7vcpEkXrKY7thuulhAspiNk+V8Pr3j94tFkuyieE7C9gmFnVK5aay2A8J7U90oFW7a9ZMyWhtahX3nhh7X4rPUfYdC5XrLDIB6bVLcrIPBKvg0+YoLnNEWnBMqXDn5yojU7AA8u9XMQq+rkzM067JkpBIf2nkkI2n4iGTEw7d13hj4EHD0xa/JLuTyF1BLAwQUAAAICAAAECHs9YeZ120AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0krmhZbJhYlJykpGFRaq5hYmuuaWZmZFxiqmFhbl5koGhmVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAECHs8oX0UmkCAAAjBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAECHs9YeZ120AAAB4AAAACQAkAAAAAAAAAAAAAAC2AgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAG4DAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -827,7 +827,39 @@ MonoBehaviour:
     _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
     _AreaColors:
     - {r: 0, g: 0, b: 0, a: 0}
-  tagNames: []
+  tagNames:
+  - Basic Ground
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
   heuristic: 2
   heuristicScale: 1
   threadCount: 1

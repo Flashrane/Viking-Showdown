@@ -7,8 +7,8 @@ public class EnemyAI : MonoBehaviour
 {
     public Transform target;
     
-    public float speed = 200f;
-    public float nextWaypointDistance = 3f;
+    public float speed = 1000f;
+    public float nextWaypointDistance = 1f;
 
     Path path;
     int currentWaypoint = 0;
@@ -22,7 +22,13 @@ public class EnemyAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rbEnemy = GetComponent<Rigidbody2D>();
 
-        seeker.StartPath(rbEnemy.position, target.position, OnPathComplete);
+        InvokeRepeating("UpdatePath", 0f, .5f);
+    }
+
+    void UpdatePath()
+    {
+        if (seeker.IsDone())
+            seeker.StartPath(rbEnemy.position, target.position, OnPathComplete);
     }
 
     void OnPathComplete(Path p)
@@ -56,6 +62,42 @@ public class EnemyAI : MonoBehaviour
         if (distance < nextWaypointDistance)
         {
             currentWaypoint++;
+        }
+
+        Rotate();
+    }
+    
+    void Rotate()
+    {
+        Debug.Log(rbEnemy.velocity.x + " " + rbEnemy.velocity.y);
+
+        if (rbEnemy.velocity.x >= 0.01f && rbEnemy.velocity.y >= 0.01f)
+        {
+            if (rbEnemy.velocity.x <= rbEnemy.velocity.y)
+                rbEnemy.rotation = 0f;
+            else
+                rbEnemy.rotation = -90f;
+        }
+        else if (rbEnemy.velocity.x >= 0.01f && rbEnemy.velocity.y <= -0.01f)
+        {
+            if (Mathf.Abs(rbEnemy.velocity.x) <= Mathf.Abs(rbEnemy.velocity.y))
+                rbEnemy.rotation = -180f;
+            else
+                rbEnemy.rotation = -90f;
+        }
+        else if (rbEnemy.velocity.x <= -0.01f && rbEnemy.velocity.y <= -0.01f)
+        {
+            if (rbEnemy.velocity.x <= rbEnemy.velocity.y)
+                rbEnemy.rotation = -180f;
+            else
+                rbEnemy.rotation = 90f;
+        }
+        else if (rbEnemy.velocity.x <= -0.01f && rbEnemy.velocity.y >= 0.01f)
+        {
+            if (Mathf.Abs(rbEnemy.velocity.x) <= Mathf.Abs(rbEnemy.velocity.y))
+                rbEnemy.rotation = 0f;
+            else
+                rbEnemy.rotation = 90f;
         }
     }
 }
