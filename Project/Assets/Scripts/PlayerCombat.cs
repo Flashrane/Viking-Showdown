@@ -6,7 +6,7 @@ public class PlayerCombat : MonoBehaviour
 {
     public Transform attackPoint;
     public LayerMask enemyLayers;
-    public PlayerController movementInfo;
+    PlayerController movementInfo;
     public AnimationManager playerAnimator;
     public AnimationManager axeAnimator;
     
@@ -23,6 +23,7 @@ public class PlayerCombat : MonoBehaviour
     void Start()
     {
         rbPlayer = this.GetComponent<Rigidbody2D>();
+        movementInfo = GetComponent<PlayerController>();
         playerAttackPoint = GameObject.Find("Player").transform.GetChild(0).gameObject;
     }
 

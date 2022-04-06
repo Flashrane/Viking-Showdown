@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rbPlayer;
     public CamFollowPlayer camFollow;
-    public PlayerCombat combatInfo;
+    PlayerCombat combatInfo;
     public AnimationManager playerAnimator;
     public AnimationManager axeAnimator;
 
@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         rbPlayer = this.GetComponent<Rigidbody2D>();
+        combatInfo = GetComponent<PlayerCombat>();
+
         rbEnemy = null;
 
         playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_IDLE);

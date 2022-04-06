@@ -31,21 +31,22 @@ public class Enemy : MonoBehaviour
             else if (currentHealth <= 75)
                 hurtLevelColor = Color.cyan;
 
-            gameObject.GetComponent<SpriteRenderer>().color = hurtLevelColor;
+            GetComponent<SpriteRenderer>().color = hurtLevelColor;
         }
     }
 
     public void KnockBack(Vector2 hitDirection, float knockBackForce)
     {
-        gameObject.GetComponent<Rigidbody2D>().AddForce(hitDirection * knockBackForce, ForceMode2D.Impulse);
+        GetComponent<Rigidbody2D>().AddForce(hitDirection * knockBackForce/50, ForceMode2D.Impulse);
     }
 
     void Die()
     {
         Debug.Log(gameObject.name + " died.");
         
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
-        gameObject.GetComponent<Collider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<EnemyAI>().enabled = false;
         this.enabled = false;
     }
 }
