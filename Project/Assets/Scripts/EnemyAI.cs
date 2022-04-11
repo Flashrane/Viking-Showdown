@@ -6,9 +6,9 @@ using Pathfinding;
 public class EnemyAI : MonoBehaviour
 {
     public Transform target;
-    
+
     public float speed = 1000f;
-    public float nextWaypointDistance = 1f;
+    public float nextWaypointDistance = 3f;
 
     Path path;
     int currentWaypoint = 0;
@@ -69,35 +69,8 @@ public class EnemyAI : MonoBehaviour
     
     void Rotate()
     {
-        Debug.Log(rbEnemy.velocity.x + " " + rbEnemy.velocity.y);
-
-        if (rbEnemy.velocity.x >= 0.01f && rbEnemy.velocity.y >= 0.01f)
-        {
-            if (rbEnemy.velocity.x <= rbEnemy.velocity.y)
-                rbEnemy.rotation = 0f;
-            else
-                rbEnemy.rotation = -90f;
-        }
-        else if (rbEnemy.velocity.x >= 0.01f && rbEnemy.velocity.y <= -0.01f)
-        {
-            if (Mathf.Abs(rbEnemy.velocity.x) <= Mathf.Abs(rbEnemy.velocity.y))
-                rbEnemy.rotation = -180f;
-            else
-                rbEnemy.rotation = -90f;
-        }
-        else if (rbEnemy.velocity.x <= -0.01f && rbEnemy.velocity.y <= -0.01f)
-        {
-            if (rbEnemy.velocity.x <= rbEnemy.velocity.y)
-                rbEnemy.rotation = -180f;
-            else
-                rbEnemy.rotation = 90f;
-        }
-        else if (rbEnemy.velocity.x <= -0.01f && rbEnemy.velocity.y >= 0.01f)
-        {
-            if (Mathf.Abs(rbEnemy.velocity.x) <= Mathf.Abs(rbEnemy.velocity.y))
-                rbEnemy.rotation = 0f;
-            else
-                rbEnemy.rotation = 90f;
-        }
+        Vector2 dir = rbEnemy.velocity;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
+        rbEnemy.rotation = angle;
     }
 }

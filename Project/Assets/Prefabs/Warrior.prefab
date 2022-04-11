@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1245975103538306679}
   - component: {fileID: 3859856883819546187}
   - component: {fileID: 3570618689972447416}
+  - component: {fileID: -6868851385934094419}
+  - component: {fileID: -2026404664867432732}
   m_Layer: 6
   m_Name: Warrior
   m_TagString: Enemy
@@ -97,8 +99,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 25
-  m_LinearDrag: 10
+  m_Mass: 1
+  m_LinearDrag: 5
   m_AngularDrag: 1000
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -136,3 +138,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   warriorPrefab: {fileID: 2922721144471429979}
   maxHealth: 100
+--- !u!114 &-6868851385934094419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2922721144471429979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &-2026404664867432732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2922721144471429979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 871696b887139fe4a951e3b4e30b1cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 1000
+  nextWaypointDistance: 2
