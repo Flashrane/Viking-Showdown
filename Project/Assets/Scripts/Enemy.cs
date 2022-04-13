@@ -1,18 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Enemy : MonoBehaviour
 {
     public GameObject warriorPrefab;
+    private EnemyAI aiScript;
 
     public int maxHealth = 100;
     int currentHealth;
 
-    Color hurtLevelColor;
+    float flashTime = 0.1f;
+    private SpriteRenderer sprRenderer;
+    private Shader shaderGUIText;
+    private Shader shaderSpritesDefault;
+    Color originalColor;
+
+    float originalSpeed;
 
     void Start()
     {
+        aiScript = GetComponent<EnemyAI>();
+
+        sprRenderer = GetComponent<SpriteRenderer>();
+        shaderGUIText = Shader.Find("GUI/Text Shader");
+        shaderSpritesDefault = Shader.Find("Sprites/Default");
+        originalColor = sprRenderer.color;
+
+        originalSpeed = aiScript.speed;
         currentHealth = maxHealth;
     }
 
@@ -24,29 +40,48 @@ public class Enemy : MonoBehaviour
             Die();
         else
         {
-            if (currentHealth <= 25)
-                hurtLevelColor = Color.yellow;
-            else if (currentHealth <= 50)
-                hurtLevelColor = Color.blue;
-            else if (currentHealth <= 75)
-                hurtLevelColor = Color.cyan;
-
-            GetComponent<SpriteRenderer>().color = hurtLevelColor;
+            StopMoving();
+            FlashWhite();            
         }
+    }
+
+    void FlashWhite()
+    {
+        sprRenderer.material.shader = shaderGUIText;
+        sprRenderer.color = Color.white;
+        Invoke("ResetColor", flashTime);
+    }
+
+    void ResetColor()
+    {
+        sprRenderer.material.shader = shaderSpritesDefault;
+        sprRenderer.color = Color.white;
+    }
+
+    void StopMoving()
+    {
+        aiScript.speed = 0f;
+        Invoke("ResetSpeed", 0.5f);
+    }
+
+    void ResetSpeed()
+    {
+        aiScript.speed = originalSpeed;
     }
 
     public void KnockBack(Vector2 hitDirection, float knockBackForce)
     {
-        GetComponent<Rigidbody2D>().AddForce(hitDirection * knockBackForce/50, ForceMode2D.Impulse);
+        GetComponent<Rigidbody2D>().AddForce(hitDirection * knockBackForce/25, ForceMode2D.Impulse);
     }
 
     void Die()
     {
         Debug.Log(gameObject.name + " died.");
-        
-        GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
+
+        sprRenderer.color = Color.black;
         GetComponent<Collider2D>().enabled = false;
         GetComponent<EnemyAI>().enabled = false;
+        GetComponent<Seeker>().enabled = false;
         this.enabled = false;
     }
 }
