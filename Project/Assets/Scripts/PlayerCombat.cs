@@ -10,21 +10,18 @@ public class PlayerCombat : MonoBehaviour
     public AnimationManager playerAnimator;
     public AnimationManager axeAnimator;
     
-    GameObject playerAttackPoint;
     Rigidbody2D rbPlayer;
 
     [SerializeField] float attackRange = 2.2f;
     [SerializeField] float attackSpeed = 3f;
     public int attackPower = 25;
     float nextAttackTime = 0f;
-
     public bool isAttacking = false;
 
     void Start()
     {
-        rbPlayer = this.GetComponent<Rigidbody2D>();
+        rbPlayer = GetComponent<Rigidbody2D>();
         movementInfo = GetComponent<PlayerController>();
-        playerAttackPoint = GameObject.Find("Player").transform.GetChild(0).gameObject;
     }
 
     void Update()
@@ -47,7 +44,6 @@ public class PlayerCombat : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("Attack");
         isAttacking = true;
         playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_ATTACK);
         axeAnimator.ChangeAnimationState(axeAnimator.AXE_ATTACK);

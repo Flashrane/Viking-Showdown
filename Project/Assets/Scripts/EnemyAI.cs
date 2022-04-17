@@ -6,27 +6,19 @@ using Pathfinding;
 public class EnemyAI : MonoBehaviour
 {
     public Transform target;
+    Rigidbody2D rbEnemy;
+    EnemyCombat combat;
 
     public float speed = 1000f;
     public float nextWaypointDistance = 2f;
 
     Path path;
     int currentWaypoint = 0;
-    
     Seeker seeker;
-    Rigidbody2D rbEnemy;
-
-    public Transform attackPoint;
-
-    [SerializeField] float attackRange = 1.6f;
-    [SerializeField] float attackSpeed = 1f;
-    public int attackPower = 20;
-    float nextAttackTime = 0f;
-
-    public bool isAttacking = false;
 
     void Start()
     {
+        combat = GetComponent<EnemyCombat>();
         seeker = GetComponent<Seeker>();
         rbEnemy = GetComponent<Rigidbody2D>();
 
@@ -54,8 +46,9 @@ public class EnemyAI : MonoBehaviour
             return;
         if (currentWaypoint >= path.vectorPath.Count) // if reached the end of the path, that is the player
         {
-            Debug.Log("Reached player");
-            Attack();
+            //Debug.Log("Reached player");
+            if (!combat.isAttacking)
+                combat.Attack();
             return;
         }
 
@@ -77,10 +70,5 @@ public class EnemyAI : MonoBehaviour
         Vector2 dir = rbEnemy.velocity;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
         rbEnemy.rotation = angle;
-    }
-
-    void Attack()
-    {
-
     }
 }
