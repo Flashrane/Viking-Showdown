@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         // move based on input
-        rbPlayer.AddForce(movement * movementSpeed * slowingStrength * Time.fixedDeltaTime, ForceMode2D.Force);
+        rbPlayer.AddForce(movement * movementSpeed * (1 / slowingStrength) * Time.fixedDeltaTime, ForceMode2D.Force);
     }
 
     void Dodge()
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
             axeAnimator.ChangeAnimationState(axeAnimator.AXE_DODGE_LEFT);
         }
         
-        rbPlayer.AddForce(movement * dodgeForce * slowingStrength, ForceMode2D.Impulse);
+        rbPlayer.AddForce(movement * dodgeForce * (1 / slowingStrength), ForceMode2D.Impulse);
 
         Invoke("DodgeCompleted", dodgeCoolDown);
     }

@@ -12,7 +12,7 @@ public class PlayerCombat : MonoBehaviour
     Rigidbody2D rbPlayer;
     
     SpriteRenderer sprRenderer;
-    float flashTime = 0.3f;
+    float flashTime = 3f;
 
     int maxHealth = 100;
     int currentHealth;
@@ -142,8 +142,8 @@ public class PlayerCombat : MonoBehaviour
 
     void SlowDown()
     {
-        movementInfo.slowingStrength = 0.2f;
-        Invoke("ResetSlowingEffect", 3f);
+        movementInfo.slowingStrength = 5f;
+        Invoke("ResetSlowingEffect", flashTime);
     }
 
     void ResetSlowingEffect()
