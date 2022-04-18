@@ -452,7 +452,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.182237
+  orthographic size: 8.671606
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -535,6 +535,10 @@ PrefabInstance:
       propertyPath: attackPoint
       value: 
       objectReference: {fileID: 1830213186}
+    - target: {fileID: 2795407949305288571, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
+      propertyPath: playerCombatInfo
+      value: 
+      objectReference: {fileID: 2125441765}
     - target: {fileID: 2922721144471429979, guid: e87224d4fa98d014187085e49a25a4a8, type: 3}
       propertyPath: m_Name
       value: Warrior
@@ -1053,6 +1057,7 @@ MonoBehaviour:
   playerAnimator: {fileID: 2125441766}
   axeAnimator: {fileID: 514537986}
   movementSpeed: 330
+  slowingStrength: 1
   dodgeForce: 4
   isDodging: 0
 --- !u!50 &2125441762

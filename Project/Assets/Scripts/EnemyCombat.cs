@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyCombat : MonoBehaviour
 {
+    public PlayerCombat playerCombatInfo;
     public Transform attackPoint;
     [SerializeField] int attackPower = 10;
     [SerializeField] float attackRange = 1.5f;
     [SerializeField] float attackSpeed = 0.333f;
-    float nextAttackTime = 0f;
     public bool isAttacking = false;
 
     public LayerMask playerLayer;
@@ -22,10 +22,11 @@ public class EnemyCombat : MonoBehaviour
         {
             Debug.Log("player got hit");
 
+            playerCombatInfo.TakeDamage(attackPower);
         }
         else
         {
-            Debug.Log("player safe");
+            Debug.Log("enemy hit missed");
 
         }
         Invoke("AttackCompleted", 1f / attackSpeed);

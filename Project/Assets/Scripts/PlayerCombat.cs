@@ -9,8 +9,13 @@ public class PlayerCombat : MonoBehaviour
     PlayerController movementInfo;
     public AnimationManager playerAnimator;
     public AnimationManager axeAnimator;
-    
     Rigidbody2D rbPlayer;
+    
+    SpriteRenderer sprRenderer;
+    float flashTime = 0.3f;
+
+    int maxHealth = 100;
+    int currentHealth;
 
     [SerializeField] float attackRange = 2.2f;
     [SerializeField] float attackSpeed = 3f;
@@ -22,6 +27,9 @@ public class PlayerCombat : MonoBehaviour
     {
         rbPlayer = GetComponent<Rigidbody2D>();
         movementInfo = GetComponent<PlayerController>();
+        sprRenderer = GetComponent<SpriteRenderer>();
+
+        currentHealth = maxHealth;
     }
 
     void Update()
@@ -101,6 +109,46 @@ public class PlayerCombat : MonoBehaviour
         Vector2 lookDir = enemy.GetComponent<Rigidbody2D>().position - rbPlayer.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rbPlayer.rotation = angle;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        FlashRed();
+
+        if (currentHealth <= 0)
+            Die();
+        else
+        {
+            SlowDown();
+        }
+    }
+
+    void Die()
+    {
+        movementInfo.enabled = false;
+    }
+
+    void FlashRed()
+    {
+        sprRenderer.color = Color.red;
+        Invoke("ResetColor", flashTime);
+    }
+
+    void ResetColor()
+    {
+        sprRenderer.color = Color.white;
+    }
+
+    void SlowDown()
+    {
+        movementInfo.slowingStrength = 0.2f;
+        Invoke("ResetSlowingEffect", 3f);
+    }
+
+    void ResetSlowingEffect()
+    {
+        movementInfo.slowingStrength = 1f;
     }
 
     void OnDrawGizmosSelected()
