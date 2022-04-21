@@ -14,7 +14,7 @@ public class HealthBar : MonoBehaviour
 
     public void SetSize(float sizeNormalized)
     {
-        bar.localScale = new Vector3(1f, sizeNormalized);
+        bar.localScale = new Vector3(sizeNormalized, 1f);
     }
 
     public void SetColor(string colorHex)

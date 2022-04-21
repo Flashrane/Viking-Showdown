@@ -122,8 +122,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.13685562, y: -0.5021687}
-  m_Size: {x: 1.657983, y: 0.90290296}
+  m_Offset: {x: 0.041047685, y: -0.095643654}
+  m_Size: {x: 1.6631756, y: 0.83560693}
   m_Direction: 1
 --- !u!114 &3570618689972447416
 MonoBehaviour:
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   warriorPrefab: {fileID: 2922721144471429979}
-  maxHealth: 100
+  healthBar: {fileID: 0}
 --- !u!114 &-6868851385934094419
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     private EnemyAI aiScript;
 
     [SerializeField] HealthBar healthBar;
-    public int maxHealth = 100;
+    int maxHealth = 100;
     int currentHealth;
 
     float flashTime = 0.1f;
@@ -33,10 +33,15 @@ public class Enemy : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    void Update()
+    {
+        healthBar.gameObject.SetActive(currentHealth < maxHealth);
+    }
+
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.SetSize((float)currentHealth/100); // normalize currentHealth value to stay between 0 and 1
+        healthBar.SetSize((float)currentHealth/100f); // normalize currentHealth value to stay between 0 and 1
 
         if (currentHealth <= 0)
             Die();
@@ -88,6 +93,7 @@ public class Enemy : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         GetComponent<EnemyAI>().enabled = false;
         GetComponent<Seeker>().enabled = false;
+        healthBar.gameObject.SetActive(false);
         this.enabled = false;
     }
 }
