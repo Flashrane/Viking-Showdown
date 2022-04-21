@@ -350,7 +350,7 @@ Transform:
   m_LocalScale: {x: 9.544951, y: 0.475, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &514537982
 GameObject:
@@ -1413,7 +1413,7 @@ Transform:
   - {fileID: 947993995}
   - {fileID: 514537983}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2125441761
 MonoBehaviour:
@@ -1511,7 +1511,9 @@ MonoBehaviour:
   axeAnimator: {fileID: 514537986}
   attackRange: 2.2
   attackSpeed: 3
-  attackPower: 25
+  attackPower: 20
+  criticalHitChance: 0.3
+  criticalHitMultiplier: 3.3
   isAttacking: 0
 --- !u!114 &2125441766
 MonoBehaviour:
