@@ -6,6 +6,7 @@ public class HealthBar : MonoBehaviour
 {
     private Transform bar;
 
+
     void Start()
     {
         bar = transform.Find("Bar");
