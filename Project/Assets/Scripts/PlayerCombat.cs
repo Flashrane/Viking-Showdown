@@ -19,7 +19,9 @@ public class PlayerCombat : MonoBehaviour
 
     [SerializeField] float attackRange = 2.2f;
     [SerializeField] float attackSpeed = 3f;
-    public int attackPower = 25;
+    [SerializeField] int attackPower = 15;
+    [SerializeField] float criticalHitChance;
+    [SerializeField] float criticalHitMultiplier;
     float nextAttackTime = 0f;
     public bool isAttacking = false;
 
@@ -70,11 +72,21 @@ public class PlayerCombat : MonoBehaviour
             // unfreeze movement of enemy when hit by the player
             rbEnemy.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
 
+            int damage = Random.Range((int)(attackPower * .75f), attackPower);
+            if (Random.Range(0f,1f) > (1 - criticalHitChance))
+            {
+                damage = (int)(damage * criticalHitMultiplier);
+
+                Debug.Log("CRITICAL HIT!");
+                // screen shake
+            }
+            Debug.Log("Damage dealt: " + damage);
+
             Enemy enemyScript = hitEnemies[closestIdx].GetComponent<Enemy>();
-            enemyScript.TakeDamage(attackPower);
+            enemyScript.TakeDamage(damage);
             enemyScript.KnockBack(rbEnemy.position - rbPlayer.position, attackPower * (rbPlayer.velocity.magnitude + 1f));
 
-            Debug.Log(hitEnemies[closestIdx].name + " got hit.");
+            //Debug.Log(hitEnemies[closestIdx].name + " got hit.");
         }
 
         Invoke("AttackCompleted", 1f / attackSpeed);
