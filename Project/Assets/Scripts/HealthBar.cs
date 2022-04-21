@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthBar : MonoBehaviour
 {
-    private Transform bar;
+    Transform bar;
 
     void Start()
     {
@@ -39,5 +39,11 @@ public class HealthBar : MonoBehaviour
         float g = HexToFloatNormalized(hexString.Substring(2, 2));
         float b = HexToFloatNormalized(hexString.Substring(4, 2));
         return new Color(r, g, b);
+    }
+
+    public void MaintainRotation(float angle)
+    {
+        //transform.Rotate(new Vector3(0, 0, -angle));
+        transform.eulerAngles = new Vector3(0, 0, -angle);
     }
 }

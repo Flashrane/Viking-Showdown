@@ -18,6 +18,6 @@ public class CamFollowPlayer : MonoBehaviour
 
     void FixedUpdate()
     {
-        this.transform.position = new Vector3(player.transform.position.x + offset.x, player.transform.position.y + offset.y, this.transform.position.z);
+        transform.position = new Vector3(player.transform.position.x + offset.x, player.transform.position.y + offset.y, transform.position.z);
     }
 }

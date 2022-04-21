@@ -15,7 +15,7 @@ public class PlayerCombat : MonoBehaviour
     float flashTime = 3f;
 
     int maxHealth = 100;
-    int currentHealth;
+    int health;
 
     [SerializeField] float attackRange = 2.2f;
     [SerializeField] float attackSpeed = 3f;
@@ -29,7 +29,7 @@ public class PlayerCombat : MonoBehaviour
         movementInfo = GetComponent<PlayerController>();
         sprRenderer = GetComponent<SpriteRenderer>();
 
-        currentHealth = maxHealth;
+        health = maxHealth;
     }
 
     void Update()
@@ -113,10 +113,10 @@ public class PlayerCombat : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        health -= damage;
         FlashRed();
 
-        if (currentHealth <= 0)
+        if (health <= 0)
             Die();
         else
         {

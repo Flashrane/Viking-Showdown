@@ -8,9 +8,9 @@ public class Enemy : MonoBehaviour
     public GameObject warriorPrefab;
     private EnemyAI aiScript;
 
-    [SerializeField] HealthBar healthBar;
+    HealthBar healthBar;
     public int maxHealth = 100;
-    int currentHealth;
+    int health;
 
     float flashTime = 0.1f;
     private SpriteRenderer sprRenderer;
@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         aiScript = GetComponent<EnemyAI>();
+        
+        healthBar = transform.GetChild(0).gameObject.GetComponent<HealthBar>();
 
         sprRenderer = GetComponent<SpriteRenderer>();
         shaderGUIText = Shader.Find("GUI/Text Shader");
@@ -30,21 +32,21 @@ public class Enemy : MonoBehaviour
         originalColor = sprRenderer.color;
 
         originalSpeed = aiScript.speed;
-        currentHealth = maxHealth;
+        health = maxHealth;
     }
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        healthBar.SetSize((float)currentHealth/100); // normalize currentHealth value to stay between 0 and 1
+        health -= damage;
+        healthBar.SetSize((float)health/100); // normalize argument
 
-        if (currentHealth <= 0)
+        if (health <= 0)
             Die();
         else
         {
             StopMoving();
             FlashWhite();            
-            if (currentHealth < 30)
+            if (health < 30)
             {
                 healthBar.SetColor("FF6303");
             }
