@@ -41,10 +41,4 @@ public class HealthBar : MonoBehaviour
         float b = HexToFloatNormalized(hexString.Substring(4, 2));
         return new Color(r, g, b);
     }
-
-    public void MaintainRotation(float angle)
-    {
-        //transform.Rotate(new Vector3(0, 0, -angle));
-        transform.eulerAngles = new Vector3(0, 0, -angle);
-    }
 }

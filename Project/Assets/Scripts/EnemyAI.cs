@@ -71,6 +71,5 @@ public class EnemyAI : MonoBehaviour
         Vector2 dir = rbEnemy.velocity;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
         rbEnemy.rotation = angle;
-        healthBar.MaintainRotation(angle);
     }
 }
