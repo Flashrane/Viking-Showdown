@@ -2,18 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CamFollowPlayer : MonoBehaviour
+public class FollowPlayer : MonoBehaviour
 {
     GameObject player;
-
-    Vector2 offset;
+    public Vector2 offset;
 
     void Awake()
     {
         player = GameObject.Find("Player");
-
-        offset.x = 0;
-        offset.y = 2.5f;
     }
 
     void FixedUpdate()

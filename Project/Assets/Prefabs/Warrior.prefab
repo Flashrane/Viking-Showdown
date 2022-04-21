@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6818332022310949034}
   - component: {fileID: 1245975103538306679}
   - component: {fileID: 3859856883819546187}
-  - component: {fileID: -6868851385934094419}
   - component: {fileID: 3570618689972447416}
+  - component: {fileID: -6868851385934094419}
   - component: {fileID: -2026404664867432732}
   - component: {fileID: 2795407949305288571}
   m_Layer: 6
@@ -122,9 +122,23 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.13685562, y: -0.5021687}
-  m_Size: {x: 1.657983, y: 0.90290296}
+  m_Offset: {x: 0.041047685, y: -0.095643654}
+  m_Size: {x: 1.6631756, y: 0.83560693}
   m_Direction: 1
+--- !u!114 &3570618689972447416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2922721144471429979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8b4b904607158f4da884ccc869382aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warriorPrefab: {fileID: 2922721144471429979}
+  healthBar: {fileID: 0}
 --- !u!114 &-6868851385934094419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,21 +167,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &3570618689972447416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2922721144471429979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8b4b904607158f4da884ccc869382aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  warriorPrefab: {fileID: 2922721144471429979}
-  healthBar: {fileID: 0}
-  maxHealth: 100
 --- !u!114 &-2026404664867432732
 MonoBehaviour:
   m_ObjectHideFlags: 0

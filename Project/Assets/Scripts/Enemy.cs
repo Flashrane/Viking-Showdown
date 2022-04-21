@@ -8,9 +8,9 @@ public class Enemy : MonoBehaviour
     public GameObject warriorPrefab;
     private EnemyAI aiScript;
 
-    HealthBar healthBar;
-    public int maxHealth = 100;
-    int health;
+    [SerializeField] HealthBar healthBar;
+    int maxHealth = 100;
+    int currentHealth;
 
     float flashTime = 0.1f;
     private SpriteRenderer sprRenderer;
@@ -23,8 +23,6 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         aiScript = GetComponent<EnemyAI>();
-        
-        healthBar = transform.GetChild(0).gameObject.GetComponent<HealthBar>();
 
         sprRenderer = GetComponent<SpriteRenderer>();
         shaderGUIText = Shader.Find("GUI/Text Shader");
@@ -32,21 +30,26 @@ public class Enemy : MonoBehaviour
         originalColor = sprRenderer.color;
 
         originalSpeed = aiScript.speed;
-        health = maxHealth;
+        currentHealth = maxHealth;
+    }
+
+    void Update()
+    {
+        healthBar.gameObject.SetActive(currentHealth < maxHealth);
     }
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        healthBar.SetSize((float)health/100); // normalize argument
+        currentHealth -= damage;
+        healthBar.SetSize((float)currentHealth/100f); // normalize currentHealth value to stay between 0 and 1
 
-        if (health <= 0)
+        if (currentHealth <= 0)
             Die();
         else
         {
             StopMoving();
             FlashWhite();            
-            if (health < 30)
+            if (currentHealth < 30)
             {
                 healthBar.SetColor("FF6303");
             }
@@ -90,6 +93,7 @@ public class Enemy : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         GetComponent<EnemyAI>().enabled = false;
         GetComponent<Seeker>().enabled = false;
+        healthBar.gameObject.SetActive(false);
         this.enabled = false;
     }
 }
