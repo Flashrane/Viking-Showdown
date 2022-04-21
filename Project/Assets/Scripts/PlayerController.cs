@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public AnimationManager axeAnimator;
 
     [SerializeField] float movementSpeed = 330.0f;
-    public float slowingStrength = 1f; // 1 means neutral in multiplications
+    public float slowingStrength = 1f; // 1 is neutral in multiplications
     [SerializeField] float dodgeForce = 3f;
     float dodgeCoolDown = 0.3f;
     float nextDodgeTime = 0f;

@@ -7,8 +7,8 @@ public class EnemyCombat : MonoBehaviour
     public PlayerCombat playerCombatInfo;
     public Transform attackPoint;
     [SerializeField] int attackPower = 10;
-    [SerializeField] float attackRange = 1.5f;
-    [SerializeField] float attackSpeed = 0.333f;
+    [SerializeField] float attackRange = 2.5f;
+    [SerializeField] float attackSpeed = 1f;
     public bool isAttacking = false;
 
     public LayerMask playerLayer;

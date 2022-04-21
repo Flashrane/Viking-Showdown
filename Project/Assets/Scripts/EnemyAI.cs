@@ -44,9 +44,8 @@ public class EnemyAI : MonoBehaviour
     {
         if (path == null)
             return;
-        if (currentWaypoint >= path.vectorPath.Count) // if reached the end of the path, that is the player
+        if (currentWaypoint >= path.vectorPath.Count) // if reached the end of the path, a.k.a. the player
         {
-            //Debug.Log("Reached player");
             if (!combat.isAttacking)
                 combat.Attack();
             return;
