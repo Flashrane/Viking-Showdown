@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public GameObject warriorPrefab;
     private EnemyAI aiScript;
 
+    [SerializeField] HealthBar healthBar;
     public int maxHealth = 100;
     int currentHealth;
 
@@ -35,6 +36,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        healthBar.SetSize((float)currentHealth/100); // normalize currentHealth value to stay between 0 and 1
 
         if (currentHealth <= 0)
             Die();
@@ -42,6 +44,10 @@ public class Enemy : MonoBehaviour
         {
             StopMoving();
             FlashWhite();            
+            if (currentHealth < 30)
+            {
+                healthBar.SetColor("FF6303");
+            }
         }
     }
 
