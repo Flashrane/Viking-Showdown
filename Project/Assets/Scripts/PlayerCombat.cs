@@ -10,7 +10,8 @@ public class PlayerCombat : MonoBehaviour
     public AnimationManager playerAnimator;
     public AnimationManager axeAnimator;
     Rigidbody2D rbPlayer;
-    
+    public CameraShake camShake;
+
     SpriteRenderer sprRenderer;
     float flashTime = 3f;
 
@@ -73,12 +74,12 @@ public class PlayerCombat : MonoBehaviour
             rbEnemy.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
 
             int damage = Random.Range((int)(attackPower * .75f), attackPower);
-            if (Random.Range(0f,1f) > (1 - criticalHitChance))
+            if (Random.Range(0f,1f) > (1 - criticalHitChance)) // if true then it's a crit
             {
                 damage = (int)(damage * criticalHitMultiplier);
 
                 Debug.Log("CRITICAL HIT!");
-                // screen shake
+                StartCoroutine(camShake.Shake(.05f, .1f));
             }
             Debug.Log("Damage dealt: " + damage);
 
@@ -138,7 +139,10 @@ public class PlayerCombat : MonoBehaviour
 
     void Die()
     {
+        playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_IDLE);
+        axeAnimator.ChangeAnimationState(axeAnimator.AXE_IDLE);
         movementInfo.enabled = false;
+        this.enabled = false;
     }
 
     void FlashRed()
