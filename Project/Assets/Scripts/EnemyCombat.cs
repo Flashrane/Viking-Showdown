@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyCombat : MonoBehaviour
 {
-    public PlayerCombat playerCombatInfo;
+    PlayerCombat playerCombatInfo;
     public Transform attackPoint;
     [SerializeField] int attackPower = 10;
     [SerializeField] float attackRange = 2.5f;
@@ -12,6 +12,11 @@ public class EnemyCombat : MonoBehaviour
     public bool isAttacking = false;
 
     public LayerMask playerLayer;
+
+    void Start()
+    {
+        playerCombatInfo = GameObject.Find("Player").GetComponent<PlayerCombat>();    
+    }
 
     public void Attack()
     {

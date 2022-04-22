@@ -5,7 +5,7 @@ using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
-    public Transform target;
+    Transform target;
     Rigidbody2D rbEnemy;
     EnemyCombat combat;
 
@@ -18,6 +18,7 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
+        target = GameObject.Find("Player").GetComponent<Transform>();
         combat = GetComponent<EnemyCombat>();
         seeker = GetComponent<Seeker>();
         rbEnemy = GetComponent<Rigidbody2D>();

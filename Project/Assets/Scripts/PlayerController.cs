@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
         playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_IDLE);
 
-        camFollow.enabled = false;
+        camFollow.enabled = true;
     }
 
     void Update()
