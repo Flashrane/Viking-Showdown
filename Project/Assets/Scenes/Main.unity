@@ -226,8 +226,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459240202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05, y: 0.15, z: 0}
-  m_LocalScale: {x: 9.544951, y: 0.475, z: 1}
+  m_LocalPosition: {x: -0.05, y: -0.0037, z: 0}
+  m_LocalScale: {x: 9.544951, y: 0.1676275, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1120,7 +1120,7 @@ MonoBehaviour:
   axeAnimator: {fileID: 514537986}
   movementSpeed: 165
   slowingStrength: 1
-  dodgeForce: 3
+  dodgeForce: 2
   isDodging: 0
 --- !u!50 &2125441762
 Rigidbody2D:
