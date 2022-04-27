@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rbPlayer;
-    public FollowPlayer camFollow;
+    public CameraFollow camFollow;
     PlayerCombat combatInfo;
     public AnimationManager playerAnimator;
     public AnimationManager axeAnimator;
