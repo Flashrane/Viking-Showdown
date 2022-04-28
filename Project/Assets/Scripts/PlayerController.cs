@@ -2,17 +2,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D rbPlayer;
-    public CameraFollow camFollow;
+    Rigidbody2D rbPlayer;
     PlayerCombat combatInfo;
     public AnimationManager playerAnimator;
     public AnimationManager axeAnimator;
+    public StaminaBar staminaBar;
 
     [SerializeField] float movementSpeed = 330.0f;
     public float slowingStrength = 1f; // 1 is neutral in multiplications
     [SerializeField] float dodgeForce = 3f;
     float dodgeCoolDown = 0.3f;
-    float nextDodgeTime = 0f;
     Vector2 movement;
     Rigidbody2D rbEnemy;
 
@@ -20,14 +19,12 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        rbPlayer = this.GetComponent<Rigidbody2D>();
+        rbPlayer = GetComponent<Rigidbody2D>();
         combatInfo = GetComponent<PlayerCombat>();
 
         rbEnemy = null;
 
         playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_IDLE);
-
-        camFollow.enabled = true;
     }
 
     void Update()
@@ -52,10 +49,15 @@ public class PlayerController : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.Z))
             {
-                if (Time.time >= nextDodgeTime)
+                if (!isDodging)
                 {
-                    Dodge();
-                    nextDodgeTime = Time.time + dodgeCoolDown;
+                    if (staminaBar.stamina < StaminaBar.Cost.DODGE)
+                        Debug.Log("Not enough stamina");
+                    else
+                    {
+                        Dodge();
+                        staminaBar.UseStamina(StaminaBar.Cost.DODGE);
+                    }
                 }
             }
         }
@@ -64,15 +66,7 @@ public class PlayerController : MonoBehaviour
             playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_IDLE);
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            if (camFollow.enabled == true)
-                camFollow.enabled = false;
-            else
-                camFollow.enabled = true;
-        }
-
-        if (isDodging && combatInfo.isAttacking)
+        if (combatInfo.isAttacking && isDodging)
         {
             CancelInvoke("DodgeCompleted");
             DodgeCompleted();

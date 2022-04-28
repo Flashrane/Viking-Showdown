@@ -7,49 +7,60 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint;
     public LayerMask enemyLayers;
     PlayerController movementInfo;
-    public AnimationManager playerAnimator;
-    public AnimationManager axeAnimator;
+    AnimationManager playerAnimator;
+    AnimationManager axeAnimator;
     Rigidbody2D rbPlayer;
     public CameraShake camShake;
+    StaminaBar staminaBar;
+    [SerializeField] PlayerHealthBar healthBar;
 
     SpriteRenderer sprRenderer;
     float flashTime = 3f;
 
-    int maxHealth = 100;
-    int health;
-
-    [SerializeField] float attackRange = 2.2f;
-    [SerializeField] float attackSpeed = 3f;
-    [SerializeField] int attackPower = 15;
+    [SerializeField] float attackRange;
+    [SerializeField] float attackSpeed;
+    [SerializeField] int attackPower;
     [SerializeField] float criticalHitChance;
     [SerializeField] float criticalHitMultiplier;
-    float nextAttackTime = 0f;
     public bool isAttacking = false;
+    public bool isInCombat = false;
+    float nextOutOfCombatTime = 0f;
 
     void Start()
     {
         rbPlayer = GetComponent<Rigidbody2D>();
         movementInfo = GetComponent<PlayerController>();
+        playerAnimator = movementInfo.playerAnimator;
+        axeAnimator = movementInfo.axeAnimator;
+        staminaBar = movementInfo.staminaBar;
         sprRenderer = GetComponent<SpriteRenderer>();
-
-        health = maxHealth;
     }
 
     void Update()
     {
-        if (Time.time >= nextAttackTime)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (!isAttacking)
             {
-                Attack();
-                nextAttackTime = Time.time + (1f / attackSpeed);
+                if (staminaBar.stamina < StaminaBar.Cost.ATTACK)
+                    Debug.Log("Not enough stamina");
+                else
+                {
+                    Attack();
+                    staminaBar.UseStamina(StaminaBar.Cost.ATTACK);
+                }
             }
         }
-        
+
         if (movementInfo.isDodging && isAttacking)
         {
             CancelInvoke("AttackCompleted");
             AttackCompleted();
+        }
+
+        if (Time.time >= nextOutOfCombatTime)
+        {
+            isInCombat = false;
         }
     }
 
@@ -62,6 +73,9 @@ public class PlayerCombat : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         if (hitEnemies.Length != 0)
         {
+            isInCombat = true;
+            nextOutOfCombatTime = Time.time + 5f;
+
             int closestIdx = 0;
             if (hitEnemies.Length > 1)
                 closestIdx = FindClosestEnemy(hitEnemies);
@@ -126,10 +140,14 @@ public class PlayerCombat : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        isInCombat = true;
+        nextOutOfCombatTime = Time.time + 3f;
+
+        healthBar.health -= damage;
+        healthBar.healthBar.value = healthBar.health;
         FlashRed();
 
-        if (health <= 0)
+        if (healthBar.health <= 0)
             Die();
         else
         {
