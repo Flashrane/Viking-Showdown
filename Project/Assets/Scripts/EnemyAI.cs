@@ -8,7 +8,6 @@ public class EnemyAI : MonoBehaviour
     Transform target;
     Rigidbody2D rbEnemy;
     EnemyCombat combat;
-    HealthBar healthBar;
 
     public float speed = 1000f;
     public float nextWaypointDistance = 2f;
@@ -23,7 +22,6 @@ public class EnemyAI : MonoBehaviour
         combat = GetComponent<EnemyCombat>();
         seeker = GetComponent<Seeker>();
         rbEnemy = GetComponent<Rigidbody2D>();
-        healthBar = transform.GetChild(0).gameObject.GetComponent<HealthBar>();
 
         InvokeRepeating("UpdatePath", 0f, .5f);
     }

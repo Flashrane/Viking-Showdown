@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public GameObject warriorPrefab;
     private EnemyAI aiScript;
 
-    [SerializeField] HealthBar healthBar;
+    public EnemyHealthBar healthBar;
     int maxHealth = 100;
     int currentHealth;
 
