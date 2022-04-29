@@ -185,11 +185,9 @@ public class PlayerCombat : MonoBehaviour
         movementInfo.slowingStrength = 1f;
     }
 
-    void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
-        if (attackPoint == null)
-            return;
-
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

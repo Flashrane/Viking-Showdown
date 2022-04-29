@@ -5,7 +5,6 @@ using Pathfinding;
 
 public class Enemy : MonoBehaviour
 {
-    public GameObject warriorPrefab;
     private EnemyAI aiScript;
 
     public EnemyHealthBar healthBar;

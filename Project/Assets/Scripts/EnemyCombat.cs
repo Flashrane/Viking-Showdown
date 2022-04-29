@@ -7,7 +7,7 @@ public class EnemyCombat : MonoBehaviour
     PlayerCombat playerCombatInfo;
     public Transform attackPoint;
     [SerializeField] int attackPower = 10;
-    [SerializeField] float attackRange = 2.5f;
+    public float attackRange = 2.5f;
     [SerializeField] float attackSpeed = 1f;
     public bool isAttacking = false;
 
@@ -40,5 +40,11 @@ public class EnemyCombat : MonoBehaviour
     void AttackCompleted()
     {
         isAttacking = false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

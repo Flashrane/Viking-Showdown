@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3570618689972447416}
   - component: {fileID: -2026404664867432732}
   - component: {fileID: 2795407949305288571}
+  - component: {fileID: 6683662985915822000}
   m_Layer: 6
   m_Name: Warrior
   m_TagString: Enemy
@@ -165,7 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b4b904607158f4da884ccc869382aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warriorPrefab: {fileID: 2922721144471429979}
   healthBar: {fileID: 0}
 --- !u!114 &-2026404664867432732
 MonoBehaviour:
@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 871696b887139fe4a951e3b4e30b1cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  viewRange: 1000
   speed: 500
   nextWaypointDistance: 2
 --- !u!114 &2795407949305288571
@@ -201,3 +202,16 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &6683662985915822000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2922721144471429979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6497f595e1b8d134b8fdd2177c4829fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castPoint: {fileID: 0}
