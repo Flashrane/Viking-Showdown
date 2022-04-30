@@ -6,8 +6,14 @@ public class AIPlayerDetector : MonoBehaviour
 {
     [SerializeField] Transform castPoint;
     Transform playerTransform;
+    
     LayerMask playerLayer;
+    [SerializeField] LayerMask obstructionLayer;
+
     Rigidbody2D rbEnemy;
+
+    [SerializeField] float radius;
+    [Range(1,360)] [SerializeField] float angle;
 
     void Start()
     {
@@ -16,19 +22,43 @@ public class AIPlayerDetector : MonoBehaviour
         rbEnemy = GetComponent<Rigidbody2D>();
     }
 
-    public bool CanSeePlayer(float distance)
+    public bool CanSeePlayer()
     {
-        float castDist = distance;
+        Collider2D rangeCheck = Physics2D.OverlapCircle(castPoint.position, radius, playerLayer);
+        if (rangeCheck != null)
+        {
+            Transform player = rangeCheck.transform;
+            float degree = rbEnemy.rotation + 45f;
+            Vector2 directionOfEnemy = (Vector3)(Quaternion.Euler(0, 0, degree) * Vector3.one);
+            Vector2 directionToPlayer = (player.position - castPoint.position).normalized;
 
-        float degree = rbEnemy.rotation + 45f;
-        Vector3 direction = (Vector3)(Quaternion.Euler(0, 0, degree) * Vector3.one);
-        Vector3 endPos = castPoint.position + direction * distance;
-        RaycastHit2D hit = Physics2D.Linecast(castPoint.position, endPos, playerLayer);
-        if (hit.collider != null)
-            return true;
+            if (Vector2.Angle(directionOfEnemy, directionToPlayer) < angle / 2)
+            {
+                float distanceToPlayer = Vector2.Distance(castPoint.position, player.position);
 
-        Debug.DrawLine(castPoint.position, endPos, Color.red);
-
+                if (!Physics2D.Raycast(castPoint.position, directionToPlayer, distanceToPlayer, obstructionLayer))
+                    return true;
+            }
+        }
         return false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        UnityEditor.Handles.DrawWireDisc(castPoint.position, Vector3.forward, radius);
+
+        Vector3 angle01 = DirectionFromAngle(-castPoint.eulerAngles.z, -angle / 2);
+        Vector3 angle02 = DirectionFromAngle(-castPoint.eulerAngles.z, angle / 2);
+
+        Gizmos.DrawLine(castPoint.position, castPoint.position + angle01 * radius);
+        Gizmos.DrawLine(castPoint.position, castPoint.position + angle02 * radius);
+    }
+
+    private Vector2 DirectionFromAngle(float eulerY, float angleInDegrees)
+    {
+        angleInDegrees += eulerY;
+
+        return new Vector2(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 }

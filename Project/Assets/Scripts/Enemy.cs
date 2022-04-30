@@ -22,7 +22,6 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         aiScript = GetComponent<EnemyAI>();
-
         sprRenderer = GetComponent<SpriteRenderer>();
         shaderGUIText = Shader.Find("GUI/Text Shader");
         shaderSpritesDefault = Shader.Find("Sprites/Default");
@@ -52,6 +51,12 @@ public class Enemy : MonoBehaviour
             {
                 healthBar.SetColor("FF6303");
             }
+        }
+
+        if (!aiScript.canSeePlayer)
+        {
+            StartCoroutine(aiScript.EnableCanSeePlayer());
+            aiScript.EnableSeeker();
         }
     }
 
@@ -91,7 +96,7 @@ public class Enemy : MonoBehaviour
         sprRenderer.color = Color.black;
         GetComponent<Collider2D>().enabled = false;
         GetComponent<EnemyAI>().enabled = false;
-        GetComponent<Seeker>().enabled = false;
+        aiScript.DisableSeeker();
         healthBar.gameObject.SetActive(false);
         this.enabled = false;
     }

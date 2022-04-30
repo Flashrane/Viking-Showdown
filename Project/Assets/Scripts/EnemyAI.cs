@@ -9,7 +9,6 @@ public class EnemyAI : MonoBehaviour
     Rigidbody2D rbEnemy;
     EnemyCombat combat;
     AIPlayerDetector playerDetector;
-    [SerializeField] float viewRange;
 
     public float speed;
     [SerializeField] float nextWaypointDistance;
@@ -18,7 +17,8 @@ public class EnemyAI : MonoBehaviour
     int currentWaypoint = 0;
     Seeker seeker;
 
-    bool canSeePlayer = false;
+    public bool canSeePlayer = false;
+    bool isEnableCanSeePlayerCRRunning = false;
 
     void Start()
     {
@@ -37,11 +37,11 @@ public class EnemyAI : MonoBehaviour
         // player is seenand enables the seeker script only after the enemy has started chasing the player
         if (!canSeePlayer)
         {
-            canSeePlayer = playerDetector.CanSeePlayer(viewRange);
-            if (canSeePlayer)
+            if (!isEnableCanSeePlayerCRRunning)
             {
-                seeker.enabled = true;
-                InvokeRepeating("UpdatePath", 0f, .1f);
+                canSeePlayer = playerDetector.CanSeePlayer();
+                if (canSeePlayer)
+                    EnableSeeker();
             }
         }
         if (canSeePlayer)
@@ -70,6 +70,18 @@ public class EnemyAI : MonoBehaviour
         }
 
         Rotate();
+    }
+
+    public void EnableSeeker()
+    {
+        seeker.enabled = true;
+        InvokeRepeating("UpdatePath", 0f, .1f);
+    }
+
+    public void DisableSeeker()
+    {
+        seeker.enabled = false;
+        CancelInvoke("UpdatePath");
     }
 
     void UpdatePath()
@@ -101,5 +113,15 @@ public class EnemyAI : MonoBehaviour
             if (!combat.isAttacking)
                 return true;
         return false;
+    }
+
+    public IEnumerator EnableCanSeePlayer()
+    {
+        isEnableCanSeePlayerCRRunning = true;
+
+        yield return new WaitForSeconds(1);
+        canSeePlayer = true;
+        
+        isEnableCanSeePlayerCRRunning = false;
     }
 }

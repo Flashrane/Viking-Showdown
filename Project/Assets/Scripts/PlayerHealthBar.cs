@@ -11,7 +11,7 @@ public class PlayerHealthBar : MonoBehaviour
     int maxHealth = 100;
     [HideInInspector] public int health;
 
-    WaitForSeconds regenTick = new WaitForSeconds(.1f);
+    WaitForSeconds regenTick = new WaitForSeconds(.5f);
     Coroutine regen;
 
     void Start()
