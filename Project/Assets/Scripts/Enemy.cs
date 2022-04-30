@@ -55,6 +55,7 @@ public class Enemy : MonoBehaviour
 
         if (!aiScript.canSeePlayer)
         {
+            aiScript.StopPatrolling();
             StartCoroutine(aiScript.EnableCanSeePlayer());
             aiScript.EnableSeeker();
         }

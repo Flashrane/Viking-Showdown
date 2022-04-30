@@ -16,6 +16,10 @@ public class EnemyAI : MonoBehaviour
     Path path;
     int currentWaypoint = 0;
     Seeker seeker;
+    
+    Patrol patrol;
+    [SerializeField] bool isPatroller;
+    bool isPatrolling = true;
 
     public bool canSeePlayer = false;
     bool isEnableCanSeePlayerCRRunning = false;
@@ -27,21 +31,30 @@ public class EnemyAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rbEnemy = GetComponent<Rigidbody2D>();
         playerDetector = GetComponent<AIPlayerDetector>();
+        patrol = GetComponent<Patrol>();
 
         seeker.enabled = false;
+        if (!isPatroller)
+            StopPatrolling();
     }
 
     void FixedUpdate()
     {
-        // the canSeePlayer variable prevents further callings of the CanSeePlayer function after the 
-        // player is seenand enables the seeker script only after the enemy has started chasing the player
+        //  after the player has been seen
+        // - prevent further callings of the CanSeePlayer function
+        // - stop patrolling
+        // - enable the seeker script
         if (!canSeePlayer)
         {
             if (!isEnableCanSeePlayerCRRunning)
             {
                 canSeePlayer = playerDetector.CanSeePlayer();
                 if (canSeePlayer)
+                {
+                    if (isPatrolling)
+                        StopPatrolling();
                     EnableSeeker();
+                }
             }
         }
         if (canSeePlayer)
@@ -69,7 +82,7 @@ public class EnemyAI : MonoBehaviour
             currentWaypoint++;
         }
 
-        Rotate();
+        Rotate(rbEnemy.velocity, 1800);
     }
 
     public void EnableSeeker()
@@ -82,6 +95,12 @@ public class EnemyAI : MonoBehaviour
     {
         seeker.enabled = false;
         CancelInvoke("UpdatePath");
+    }
+
+    public void StopPatrolling()
+    {
+        Destroy(patrol);
+        isPatrolling = false;
     }
 
     void UpdatePath()
@@ -99,11 +118,10 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    void Rotate()
+    public void Rotate(Vector3 moveDirection, int rotationSpeed)
     {
-        Vector2 dir = rbEnemy.velocity;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
-        rbEnemy.rotation = angle;
+        Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, moveDirection);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
     }
 
     bool IsPlayerInAttackRange()

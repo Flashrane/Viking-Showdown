@@ -179,9 +179,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 871696b887139fe4a951e3b4e30b1cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRange: 1000
   speed: 500
   nextWaypointDistance: 2
+  isPatroller: 0
+  canSeePlayer: 0
 --- !u!114 &2795407949305288571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,3 +216,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   castPoint: {fileID: 0}
+  obstructionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  radius: 0
+  angle: 0
