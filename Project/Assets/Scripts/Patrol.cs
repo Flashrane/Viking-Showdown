@@ -30,7 +30,7 @@ public class Patrol : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, moveSpots[randomSpot].position, speed * Time.deltaTime);
             Vector3 moveDirection = moveSpots[randomSpot].position - transform.position;
-            aiScript.Rotate(moveDirection, 720);
+            aiScript.Rotate(moveDirection, 1080);
         }
 
         float distanceToSpot = Vector2.Distance(transform.position, moveSpots[randomSpot].position);
