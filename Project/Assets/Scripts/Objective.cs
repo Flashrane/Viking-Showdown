@@ -8,7 +8,7 @@ public class Objective : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI currentObjective;
     public string[] objectives;
-    int objectiveIndex = 0;
+    public static int objectiveIndex = 0;
 
     void Start()
     {
@@ -17,5 +17,18 @@ public class Objective : MonoBehaviour
 
     void Update()
     {
+        if (objectiveIndex == 0 && Enemy.EnemiesRemaining == 0)
+            NextObjective();
+    }
+
+    public void NextObjective()
+    {
+        if (objectiveIndex + 1 == objectives.Length)
+        {
+            this.enabled = false;
+            return;
+        }
+        objectiveIndex++;
+        currentObjective.text = objectives[objectiveIndex];
     }
 }

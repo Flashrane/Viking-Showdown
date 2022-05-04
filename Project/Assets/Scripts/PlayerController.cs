@@ -17,6 +17,10 @@ public class PlayerController : MonoBehaviour
 
     public bool isDodging = false;
 
+    public Objective objective;
+    public SpriteRenderer obj2Hint;
+    public Transform boat;
+
     void Awake()
     {
         rbPlayer = GetComponent<Rigidbody2D>();
@@ -125,6 +129,41 @@ public class PlayerController : MonoBehaviour
         if (rbEnemy != null)
         {
             rbEnemy.constraints = RigidbodyConstraints2D.None;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (Objective.objectiveIndex == 1 && collision.name == "objective-1")
+        {
+            objective.NextObjective();
+            obj2Hint.enabled = true;
+        }
+        if (Objective.objectiveIndex == 2 && collision.name == "objective-2")
+        {
+            Color color = Color.green;
+            color.a = 0.45f;
+            obj2Hint.color = color;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (Objective.objectiveIndex == 2 && collision.name == "objective-2")
+        {
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (Objective.objectiveIndex == 2 && collision.name == "objective-2")
+        {
+            Color color = Color.yellow;
+            color.a = 0.45f;
+            obj2Hint.color = color;
         }
     }
 }
