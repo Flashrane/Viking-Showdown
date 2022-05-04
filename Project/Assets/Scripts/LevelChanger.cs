@@ -13,14 +13,6 @@ public class LevelChanger : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            FadeToNextLevel();
-        }
-    }
-
     public void FadeToNextLevel()
     {
         FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);

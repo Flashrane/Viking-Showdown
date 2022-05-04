@@ -10,16 +10,6 @@ public class StartMenu : MonoBehaviour
 
     void Update()
     {
-
-    }
-
-    public void Continue()
-    {
-    }
-
-    public void NewGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void ExitGame()

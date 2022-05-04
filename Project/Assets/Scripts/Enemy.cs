@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour
 
     float originalSpeed;
 
+    public static int numberOfEnemies = 0;
+
     void Start()
     {
         aiScript = GetComponent<EnemyAI>();
@@ -29,6 +31,7 @@ public class Enemy : MonoBehaviour
 
         originalSpeed = aiScript.speed;
         currentHealth = maxHealth;
+        numberOfEnemies++;
     }
 
     void Update()
@@ -93,6 +96,8 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         Debug.Log(gameObject.name + " died.");
+        numberOfEnemies--;
+        Debug.Log("Remaining enemies alive: " + numberOfEnemies);
 
         sprRenderer.color = Color.black;
         GetComponent<Collider2D>().enabled = false;

@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 371104617}
   - component: {fileID: 371104616}
   - component: {fileID: 371104615}
+  - component: {fileID: 371104619}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -224,6 +225,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &371104619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371104614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9b324cc4b147d45948cb8bfa27360d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 2079881838}
+  seconds: 6
 --- !u!1 &710151219
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,6 +678,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelChanger
       objectReference: {fileID: 0}
+    - target: {fileID: 2204524307494158424, guid: f95c492445a0810479d34e7dea4189de, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2204524307494158431, guid: f95c492445a0810479d34e7dea4189de, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -709,6 +728,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f95c492445a0810479d34e7dea4189de, type: 3}
+--- !u!114 &1928278787 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2204524307494158425, guid: f95c492445a0810479d34e7dea4189de, type: 3}
+  m_PrefabInstance: {fileID: 1928278786}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26389c73c8294c94b9e075e4d400d992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2079881838
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,7 +757,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2079881839
 RectTransform:
   m_ObjectHideFlags: 0
@@ -761,7 +791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -791,7 +821,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2079881841}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1928278787}
+        m_TargetAssemblyTypeName: LevelChanger, Assembly-CSharp
+        m_MethodName: FadeToNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2079881841
 MonoBehaviour:
   m_ObjectHideFlags: 0

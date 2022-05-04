@@ -6,37 +6,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject endMenu;
+    public static bool GameIsPaused = false;
+    public static bool GameHasEnded = false;
 
-    bool gameHasEnded = false;
-    float restartDelay = 2f;
-
-    void FreezeGameplay()
+    void Update()
     {
-        Time.timeScale = 0;
-
-        // 
-    }
-
-    void Pause()
-    {
-        Time.timeScale = 0;
-        
-        // show ui
-    }
-
-    void Resume()
-    {
-
-    }
-
-    public IEnumerator EndGame()
-    {
-        if (gameHasEnded == false)
-        {
-            gameHasEnded = true;
-            yield return new WaitForSeconds(restartDelay);
-            endMenu.SetActive(true);
-        }
     }
 }
