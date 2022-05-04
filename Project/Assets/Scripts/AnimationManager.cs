@@ -7,16 +7,16 @@ public class AnimationManager : MonoBehaviour
     public Animator animator;
     string currentState;
 
-    public readonly string PLAYER_IDLE = "Player_Idle";
-    public readonly string PLAYER_WALK = "Player_Walk";
-    public readonly string PLAYER_DODGE_LEFT = "Player_Dodge_Left";
-    public readonly string PLAYER_DODGE_RIGHT = "Player_Dodge_Right";
-    public readonly string PLAYER_ATTACK = "Player_Attack";
+    public static string PLAYER_IDLE = "Player_Idle";
+    public static string PLAYER_WALK = "Player_Walk";
+    public static string PLAYER_DODGE_LEFT = "Player_Dodge_Left";
+    public static string PLAYER_DODGE_RIGHT = "Player_Dodge_Right";
+    public static string PLAYER_ATTACK = "Player_Attack";
 
-    public readonly string AXE_IDLE = "Axe_Idle";
-    public readonly string AXE_ATTACK = "Axe_Attack";
-    public readonly string AXE_DODGE_LEFT = "Axe_Dodge_Left";
-    public readonly string AXE_DODGE_RIGHT = "Axe_Dodge_Right";
+    public static string AXE_IDLE = "Axe_Idle";
+    public static string AXE_ATTACK = "Axe_Attack";
+    public static string AXE_DODGE_LEFT = "Axe_Dodge_Left";
+    public static string AXE_DODGE_RIGHT = "Axe_Dodge_Right";
 
     public void ChangeAnimationState(string newState)
     {

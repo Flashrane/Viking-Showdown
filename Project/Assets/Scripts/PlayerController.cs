@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     Rigidbody2D rbPlayer;
     PlayerCombat combatInfo;
     public AnimationManager playerAnimator;
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
         rbEnemy = null;
 
-        playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_IDLE);
+        playerAnimator.ChangeAnimationState(AnimationManager.PLAYER_IDLE);
     }
 
     void Update()
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour
         if (movement.x != 0 || movement.y != 0)
         {
             if (!combatInfo.isAttacking && !isDodging)
-                playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_WALK);
+                playerAnimator.ChangeAnimationState(AnimationManager.PLAYER_WALK);
 
             if (movement.x == 0 && movement.y > 0)
                 rbPlayer.rotation = 0f;
@@ -67,7 +68,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (!combatInfo.isAttacking && !isDodging)
         {
-            playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_IDLE);
+            playerAnimator.ChangeAnimationState(AnimationManager.PLAYER_IDLE);
         }
 
         if (combatInfo.isAttacking && isDodging)
@@ -92,16 +93,16 @@ public class PlayerController : MonoBehaviour
             (rbPlayer.rotation == 90f && movement.y > 0) ||
             (movement.x == 0 || movement.y == 0))
         {
-            playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_DODGE_RIGHT);
-            axeAnimator.ChangeAnimationState(axeAnimator.AXE_DODGE_RIGHT);
+            playerAnimator.ChangeAnimationState(AnimationManager.PLAYER_DODGE_RIGHT);
+            axeAnimator.ChangeAnimationState(AnimationManager.AXE_DODGE_RIGHT);
         }
         else if ((rbPlayer.rotation == 0f && movement.x < 0) ||
             (rbPlayer.rotation == -90f && movement.y > 0) ||
             (rbPlayer.rotation == -180f && movement.x > 0) ||
             (rbPlayer.rotation == 90f && movement.y < 0))
         {
-            playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_DODGE_LEFT);
-            axeAnimator.ChangeAnimationState(axeAnimator.AXE_DODGE_LEFT);
+            playerAnimator.ChangeAnimationState(AnimationManager.PLAYER_DODGE_LEFT);
+            axeAnimator.ChangeAnimationState(AnimationManager.AXE_DODGE_LEFT);
         }
         
         rbPlayer.AddForce(movement * dodgeForce * (1 / slowingStrength), ForceMode2D.Impulse);
@@ -112,7 +113,7 @@ public class PlayerController : MonoBehaviour
     void DodgeCompleted()
     {
         isDodging = false;
-        axeAnimator.ChangeAnimationState(axeAnimator.AXE_IDLE);
+        axeAnimator.ChangeAnimationState(AnimationManager.AXE_IDLE);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -126,9 +127,10 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (rbEnemy != null)
+        if (collision.gameObject.tag == "Enemy")
         {
-            rbEnemy.constraints = RigidbodyConstraints2D.None;
+            if (rbEnemy != null)
+                rbEnemy.constraints = RigidbodyConstraints2D.None;
         }
     }
 
@@ -153,6 +155,9 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.X))
             {
+                gameManager.DisableGameplay();
+                transform.position = new Vector3(boat.position.x, boat.position.y - 0.7f, boat.position.z);
+                rbPlayer.rotation = 0f;
             }
         }
     }

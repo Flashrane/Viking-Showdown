@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     public Transform attackPoint;
     public LayerMask enemyLayers;
     PlayerController movementInfo;
@@ -67,8 +68,8 @@ public class PlayerCombat : MonoBehaviour
     void Attack()
     {
         isAttacking = true;
-        playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_ATTACK);
-        axeAnimator.ChangeAnimationState(axeAnimator.AXE_ATTACK);
+        playerAnimator.ChangeAnimationState(AnimationManager.PLAYER_ATTACK);
+        axeAnimator.ChangeAnimationState(AnimationManager.AXE_ATTACK);
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         if (hitEnemies.Length != 0)
@@ -110,7 +111,7 @@ public class PlayerCombat : MonoBehaviour
     void AttackCompleted()
     {
         isAttacking = false;
-        axeAnimator.ChangeAnimationState(axeAnimator.AXE_IDLE);
+        axeAnimator.ChangeAnimationState(AnimationManager.AXE_IDLE);
     }
 
     int FindClosestEnemy(Collider2D[] hitEnemies)
@@ -157,8 +158,8 @@ public class PlayerCombat : MonoBehaviour
 
     void Die()
     {
-        playerAnimator.ChangeAnimationState(playerAnimator.PLAYER_IDLE);
-        axeAnimator.ChangeAnimationState(axeAnimator.AXE_IDLE);
+        playerAnimator.ChangeAnimationState(AnimationManager.PLAYER_IDLE);
+        axeAnimator.ChangeAnimationState(AnimationManager.AXE_IDLE);
         movementInfo.enabled = false;
         this.enabled = false;
     }
