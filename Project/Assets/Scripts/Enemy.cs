@@ -95,9 +95,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        Debug.Log(gameObject.name + " died.");
         EnemiesRemaining--;
-        Debug.Log("Remaining enemies alive: " + EnemiesRemaining);
 
         sprRenderer.color = Color.black;
         GetComponent<Collider2D>().enabled = false;

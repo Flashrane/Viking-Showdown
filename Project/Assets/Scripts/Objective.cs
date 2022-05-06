@@ -7,29 +7,34 @@ using TMPro;
 public class Objective : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI currentObjective;
+    public static int sceneIndex;
     public string[] objectives;
-    public static int objectiveIndex = 0;
+    public static int objectiveIndex;
 
     void Start()
     {
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        objectiveIndex = 0;
         currentObjective.text = objectives[objectiveIndex];
     }
 
     void Update()
     {
-        if (objectiveIndex == 0 && Enemy.EnemiesRemaining == 0)
-            NextObjective();
+        if (sceneIndex == 2)
+            if (objectiveIndex == 0 && Enemy.EnemiesRemaining == 0)
+                NextObjective();
     }
 
     public void NextObjective()
     {
-        if (objectiveIndex + 1 == objectives.Length)
+        objectiveIndex++;
+        if (objectiveIndex == objectives.Length)
         {
             currentObjective.text = "";
             this.enabled = false;
             return;
         }
-        objectiveIndex++;
         currentObjective.text = objectives[objectiveIndex];
     }
 }

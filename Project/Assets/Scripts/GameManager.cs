@@ -22,4 +22,11 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerCombat>().enabled = false;
         player.GetComponent<CapsuleCollider2D>().enabled = false;
     }
+
+    public void EnableGameplay()
+    {
+        player.GetComponent<PlayerController>().enabled = true;
+        player.GetComponent<PlayerCombat>().enabled = true;
+        player.GetComponent<CapsuleCollider2D>().enabled = true;
+    }
 }

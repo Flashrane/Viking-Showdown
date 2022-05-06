@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Boat : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     [SerializeField] LevelChanger levelChanger;
     [SerializeField] Transform boat;
     [SerializeField] Transform player;
@@ -22,9 +23,20 @@ public class Boat : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "seaArea")
+        if (Objective.sceneIndex == 2)
         {
-            levelChanger.FadeToNextLevel();
+            if (collision.name == "seaArea")
+            {
+                levelChanger.FadeToNextLevel();
+            }
+        }
+        else if (Objective.sceneIndex == 3)
+        {
+            if (collision.name == "shore")
+            {
+                GetComponent<BoxCollider2D>().enabled = false;
+                this.enabled = false;
+            }
         }
     }
 }

@@ -83,13 +83,16 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.X))
             {
-                gameManager.DisableGameplay();
-                transform.position = new Vector3(boat.position.x, boat.position.y - 0.7f, boat.position.z);
-                rbPlayer.rotation = 0f;
+                if (Objective.sceneIndex == 2)
+                {
+                    gameManager.DisableGameplay();
+                    transform.position = new Vector3(boat.position.x, boat.position.y - 0.7f, boat.position.z);
+                    rbPlayer.rotation = 0f;
 
-                objective.NextObjective();
+                    objective.NextObjective();
 
-                boatScript.enabled = true;
+                    boatScript.enabled = true;
+                }
             }
         }
     }
@@ -152,28 +155,34 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Objective.objectiveIndex == 1 && collision.name == "objective-1")
+        if (Objective.sceneIndex == 2)
         {
-            objective.NextObjective();
-            runwayPad.enabled = true;
-        }
-        if (Objective.objectiveIndex == 2 && collision.name == "objective-2")
-        {
-            isRunwayPadTriggered = true;
-            Color color = Color.green;
-            color.a = 0.45f;
-            runwayPad.color = color;
+            if (Objective.objectiveIndex == 1 && collision.name == "objective-1")
+            {
+                objective.NextObjective();
+                runwayPad.enabled = true;
+            }
+            if (Objective.objectiveIndex == 2 && collision.name == "objective-2")
+            {
+                isRunwayPadTriggered = true;
+                Color color = Color.green;
+                color.a = 0.45f;
+                runwayPad.color = color;
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (Objective.objectiveIndex == 2 && collision.name == "objective-2")
+        if (Objective.sceneIndex == 2)
         {
-            isRunwayPadTriggered = false;
-            Color color = Color.yellow;
-            color.a = 0.45f;
-            runwayPad.color = color;
+            if (Objective.objectiveIndex == 2 && collision.name == "objective-2")
+            {
+                isRunwayPadTriggered = false;
+                Color color = Color.yellow;
+                color.a = 0.45f;
+                runwayPad.color = color;
+            }
         }
     }
 }
