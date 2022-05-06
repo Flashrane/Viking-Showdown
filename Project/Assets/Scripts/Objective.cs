@@ -25,6 +25,7 @@ public class Objective : MonoBehaviour
     {
         if (objectiveIndex + 1 == objectives.Length)
         {
+            currentObjective.text = "";
             this.enabled = false;
             return;
         }

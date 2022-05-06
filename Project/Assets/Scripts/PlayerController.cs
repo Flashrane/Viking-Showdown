@@ -17,10 +17,12 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rbEnemy;
 
     public bool isDodging = false;
+    bool isRunwayPadTriggered = false;
 
-    public Objective objective;
-    public SpriteRenderer obj2Hint;
-    public Transform boat;
+    [SerializeField] Objective objective;
+    [SerializeField] SpriteRenderer runwayPad;
+    [SerializeField] Transform boat;
+    [SerializeField] Boat boatScript;
 
     void Awake()
     {
@@ -75,6 +77,20 @@ public class PlayerController : MonoBehaviour
         {
             CancelInvoke("DodgeCompleted");
             DodgeCompleted();
+        }
+
+        if (isRunwayPadTriggered)
+        {
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                gameManager.DisableGameplay();
+                transform.position = new Vector3(boat.position.x, boat.position.y - 0.7f, boat.position.z);
+                rbPlayer.rotation = 0f;
+
+                objective.NextObjective();
+
+                boatScript.enabled = true;
+            }
         }
     }
 
@@ -139,26 +155,14 @@ public class PlayerController : MonoBehaviour
         if (Objective.objectiveIndex == 1 && collision.name == "objective-1")
         {
             objective.NextObjective();
-            obj2Hint.enabled = true;
+            runwayPad.enabled = true;
         }
         if (Objective.objectiveIndex == 2 && collision.name == "objective-2")
         {
+            isRunwayPadTriggered = true;
             Color color = Color.green;
             color.a = 0.45f;
-            obj2Hint.color = color;
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (Objective.objectiveIndex == 2 && collision.name == "objective-2")
-        {
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                gameManager.DisableGameplay();
-                transform.position = new Vector3(boat.position.x, boat.position.y - 0.7f, boat.position.z);
-                rbPlayer.rotation = 0f;
-            }
+            runwayPad.color = color;
         }
     }
 
@@ -166,9 +170,10 @@ public class PlayerController : MonoBehaviour
     {
         if (Objective.objectiveIndex == 2 && collision.name == "objective-2")
         {
+            isRunwayPadTriggered = false;
             Color color = Color.yellow;
             color.a = 0.45f;
-            obj2Hint.color = color;
+            runwayPad.color = color;
         }
     }
 }
