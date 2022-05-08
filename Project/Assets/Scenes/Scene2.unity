@@ -297,19 +297,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2786601520350301656, guid: a7886cd94ea93c6459c107dbbeac7efe, type: 3}
       propertyPath: objectives.Array.data[0]
-      value: Disembark (press [X])
+      value: "Sz\xE1llj ki a cs\xF3nakb\xF3l (nyomd az [X]-et)"
       objectReference: {fileID: 0}
     - target: {fileID: 2786601520350301656, guid: a7886cd94ea93c6459c107dbbeac7efe, type: 3}
       propertyPath: objectives.Array.data[1]
-      value: Find the hole on the fence and sneak into Jarl XXX\s base
+      value: "Keresd meg a r\xE9st a ker\xEDt\xE9sen \xE9s lop\xF3zz be Olaf jarl
+        birtok\xE1ra"
       objectReference: {fileID: 0}
     - target: {fileID: 2786601520350301656, guid: a7886cd94ea93c6459c107dbbeac7efe, type: 3}
       propertyPath: objectives.Array.data[2]
-      value: Kill the guards
+      value: "\xD6ldd meg az \u0151r\xF6ket"
       objectReference: {fileID: 0}
     - target: {fileID: 2786601520350301656, guid: a7886cd94ea93c6459c107dbbeac7efe, type: 3}
       propertyPath: objectives.Array.data[3]
-      value: Fight Jarl XXX
+      value: "Gy\u0151zd le Olaf jarlt"
       objectReference: {fileID: 0}
     - target: {fileID: 2786601520686255195, guid: a7886cd94ea93c6459c107dbbeac7efe, type: 3}
       propertyPath: healthBar
@@ -415,6 +416,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameplayUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2786601521764390274, guid: a7886cd94ea93c6459c107dbbeac7efe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2786601521913328280, guid: a7886cd94ea93c6459c107dbbeac7efe, type: 3}
+      propertyPath: m_text
+      value: "C\xC9L"
+      objectReference: {fileID: 0}
     - target: {fileID: 2786601522053729528, guid: a7886cd94ea93c6459c107dbbeac7efe, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -469,6 +478,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e7b54e471885b4897bfc7f0c2564d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &885550575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7566874766417194349, guid: a7886cd94ea93c6459c107dbbeac7efe, type: 3}
+  m_PrefabInstance: {fileID: 885550570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &893102277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1544,7 +1558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 885550575}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1155462982

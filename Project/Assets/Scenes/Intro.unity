@@ -445,7 +445,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[Space] Skip'
+  m_text: "Tov\xE1bb"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -556,8 +556,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000011444092, y: 0}
-  m_SizeDelta: {x: 874.5713, y: 186.4276}
+  m_AnchoredPosition: {x: -0.000011444092, y: -10}
+  m_SizeDelta: {x: 1158.5188, y: 340.2957}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1794788261
 MonoBehaviour:
@@ -579,10 +579,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: One day you went hunting but happened to stay in the woods for the night.
-    In the morning a wanderer appeared at your campfire, telling you that your village
-    has been invaded and burnt down by enemy vikings. No soul has been spared. Including
-    your family.
+  m_text: "Am\xEDg t\xE1vol volt\xE1l \xE9lelem\xE9rt vad\xE1szni, az \xE9jszaka
+    folyam\xE1n egy ismeretlen viking porty\xE1z\xF3 csapat lerohanta a faludat,
+    Torvundot. Egyetlen lelket se hagytak \xE9letben, valamint minden vagyont elvittek.
+    Az \xE1ldozatok k\xF6z\xFCl jelen volt a csal\xE1dod is: \xE9desany\xE1d, feles\xE9ge
+    \xE9s a k\xE9t fi\xFAgyermeked. Egy arra j\xE1r\xF3 v\xE1ndor odaj\xF6tt hozz\xE1d,
+    \xE9s mint kider\xFClt, \u0151 l\xE1tta t\xE1volr\xF3l a tragikus jelenetet.
+    Olaf jarl rendelte el az inv\xE1zi\xF3t - Eikefjordban lakik. Bossz\xFAt fogsz
+    \xE1llni."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -609,10 +613,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.6
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -776,7 +780,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 280}
-  m_SizeDelta: {x: 158.9868, y: 36.929}
+  m_SizeDelta: {x: 132.6274, y: 36.929}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2079881840
 MonoBehaviour:
@@ -791,7 +795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -800,9 +804,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0.19607843}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.3529412}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.50980395}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.50980395}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.6313726}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.78431374}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
