@@ -123,6 +123,79 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &73975123
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6847350168698808954, guid: e8e82058489cac6488d79dfc5df92142, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847350168708631109, guid: e8e82058489cac6488d79dfc5df92142, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847350169070683592, guid: e8e82058489cac6488d79dfc5df92142, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847350169679328377, guid: e8e82058489cac6488d79dfc5df92142, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847350169848908752, guid: e8e82058489cac6488d79dfc5df92142, type: 3}
+      propertyPath: m_Name
+      value: JarlCourt
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847350169848908753, guid: e8e82058489cac6488d79dfc5df92142, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847350169848908753, guid: e8e82058489cac6488d79dfc5df92142, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847350169848908753, guid: e8e82058489cac6488d79dfc5df92142, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -28.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847350169848908753, guid: e8e82058489cac6488d79dfc5df92142, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -158.55447
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847350169848908753, guid: e8e82058489cac6488d79dfc5df92142, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847350169848908753, guid: e8e82058489cac6488d79dfc5df92142, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847350169848908753, guid: e8e82058489cac6488d79dfc5df92142, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847350169848908753, guid: e8e82058489cac6488d79dfc5df92142, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847350169848908753, guid: e8e82058489cac6488d79dfc5df92142, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847350169848908753, guid: e8e82058489cac6488d79dfc5df92142, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847350169848908753, guid: e8e82058489cac6488d79dfc5df92142, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e8e82058489cac6488d79dfc5df92142, type: 3}
 --- !u!1001 &701822883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -220,7 +293,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2786601520350301656, guid: a7886cd94ea93c6459c107dbbeac7efe, type: 3}
       propertyPath: objectives.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2786601520350301656, guid: a7886cd94ea93c6459c107dbbeac7efe, type: 3}
       propertyPath: objectives.Array.data[0]
@@ -228,11 +301,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2786601520350301656, guid: a7886cd94ea93c6459c107dbbeac7efe, type: 3}
       propertyPath: objectives.Array.data[1]
-      value: 
+      value: Find the hole on the fence and sneak into Jarl XXX\s base
       objectReference: {fileID: 0}
     - target: {fileID: 2786601520350301656, guid: a7886cd94ea93c6459c107dbbeac7efe, type: 3}
       propertyPath: objectives.Array.data[2]
-      value: 
+      value: Kill the guards
+      objectReference: {fileID: 0}
+    - target: {fileID: 2786601520350301656, guid: a7886cd94ea93c6459c107dbbeac7efe, type: 3}
+      propertyPath: objectives.Array.data[3]
+      value: Fight Jarl XXX
       objectReference: {fileID: 0}
     - target: {fileID: 2786601520686255195, guid: a7886cd94ea93c6459c107dbbeac7efe, type: 3}
       propertyPath: healthBar
@@ -1484,6 +1561,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1168600960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1168600961}
+  m_Layer: 0
+  m_Name: boatPad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1168600961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168600960}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.03, y: 4.635, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1313656353}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1202925737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1573,6 +1680,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1085947206}
+  - {fileID: 1168600961}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
