@@ -9748,7 +9748,11 @@ PrefabInstance:
     - target: {fileID: 4331521384361986957, guid: 11e0c4ccd7ce83948baa0b05b34b5b8e, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 2125441760}
+      objectReference: {fileID: 2125441758}
+    - target: {fileID: 4331521384361986957, guid: 11e0c4ccd7ce83948baa0b05b34b5b8e, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 347191748}
     - target: {fileID: 4331521384361986957, guid: 11e0c4ccd7ce83948baa0b05b34b5b8e, type: 3}
       propertyPath: levelChanger
       value: 

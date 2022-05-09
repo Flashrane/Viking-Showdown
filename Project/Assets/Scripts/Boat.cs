@@ -7,7 +7,8 @@ public class Boat : MonoBehaviour
     [SerializeField] GameManager gameManager;
     [SerializeField] LevelChanger levelChanger;
     [SerializeField] Transform boat;
-    [SerializeField] Transform player;
+    [SerializeField] GameObject player;
+    [SerializeField] PolygonCollider2D seaCollider;
 
     void Update()
     {
@@ -18,7 +19,7 @@ public class Boat : MonoBehaviour
     {
         Vector2 destination = new Vector2(boat.position.x, boat.position.y + 7f);
         boat.position = Vector2.MoveTowards(boat.position, destination, Time.deltaTime);
-        player.position = new Vector3(boat.position.x, boat.position.y - 0.7f, boat.position.z); ;
+        player.transform.position = new Vector3(boat.position.x, boat.position.y - 0.7f, boat.position.z); ;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -34,7 +35,9 @@ public class Boat : MonoBehaviour
         {
             if (collision.name == "shore")
             {
-                GetComponent<BoxCollider2D>().enabled = false;
+                seaCollider.enabled = false;
+                gameManager.EnableGameplay();
+                player.GetComponent<PlayerController>().hasReachedShore = true;
                 this.enabled = false;
             }
         }

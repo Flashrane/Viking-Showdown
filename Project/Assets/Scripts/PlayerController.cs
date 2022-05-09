@@ -18,11 +18,13 @@ public class PlayerController : MonoBehaviour
 
     public bool isDodging = false;
     bool isRunwayPadTriggered = false;
+    public bool hasReachedShore = false;
 
     [SerializeField] Objective objective;
     [SerializeField] SpriteRenderer runwayPad;
     [SerializeField] Transform boat;
     [SerializeField] Boat boatScript;
+    [SerializeField] PolygonCollider2D seaCollider;
 
     void Awake()
     {
@@ -79,11 +81,11 @@ public class PlayerController : MonoBehaviour
             DodgeCompleted();
         }
 
-        if (isRunwayPadTriggered)
+        if (Objective.sceneIndex == 2)
         {
-            if (Input.GetKeyDown(KeyCode.X))
+            if (isRunwayPadTriggered)
             {
-                if (Objective.sceneIndex == 2)
+                if (Input.GetKeyDown(KeyCode.X))
                 {
                     gameManager.DisableGameplay();
                     transform.position = new Vector3(boat.position.x, boat.position.y - 0.7f, boat.position.z);
@@ -92,6 +94,24 @@ public class PlayerController : MonoBehaviour
                     objective.NextObjective();
 
                     boatScript.enabled = true;
+                }
+            }
+        }
+        else if (Objective.sceneIndex == 3)
+        {
+            if (hasReachedShore)
+            {
+                if (Input.GetKeyDown(KeyCode.X))
+                {
+                    transform.position = new Vector3(boat.position.x + 1.5f, boat.position.y + 1f, boat.position.z);
+                    hasReachedShore = false;
+                    seaCollider.enabled = true;
+
+                    BoxCollider2D[] boatColliders = boat.GetComponents<BoxCollider2D>();
+                    foreach(BoxCollider2D collider in boatColliders)
+                        Destroy(collider);
+
+                    objective.NextObjective();
                 }
             }
         }
