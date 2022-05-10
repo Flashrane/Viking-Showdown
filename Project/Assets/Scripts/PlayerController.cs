@@ -190,6 +190,14 @@ public class PlayerController : MonoBehaviour
                 runwayPad.color = color;
             }
         }
+        else if (Objective.sceneIndex == 3)
+        {
+            if (Objective.objectiveIndex == 1 && collision.name == "brokenFence")
+            {
+                objective.NextObjective();
+                Destroy(collision.gameObject);
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
