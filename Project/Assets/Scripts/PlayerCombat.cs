@@ -121,13 +121,8 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider2D enemy in enemiesInRange)
         {
             RaycastHit2D hitObstacle = Physics2D.Linecast(attackPoint.position, enemy.transform.position, obstacleLayer);
-            //RaycastHit2D hitObstacle = Physics2D.Raycast(attackPoint.position, hitDirection, attackRange, obstacleLayer);
-            
             if (hitObstacle)
-            {
-                Debug.Log(hitObstacle.collider.name + " is in the way");
                 return true;
-            }
         }
         return false;
     }
