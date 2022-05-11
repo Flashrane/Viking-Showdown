@@ -32,7 +32,6 @@ public class EnemyCombat : MonoBehaviour
         else
         {
             Debug.Log("enemy hit missed");
-
         }
         Invoke("AttackCompleted", 1f / attackSpeed);
     }

@@ -23,6 +23,8 @@ public class EnemyAI : MonoBehaviour
 
     public bool canSeePlayer = false;
     bool isEnableCanSeePlayerCRRunning = false;
+    
+    float move = 1; // used as a boolean
 
     void Start()
     {
@@ -41,9 +43,7 @@ public class EnemyAI : MonoBehaviour
     void FixedUpdate()
     {
         //  after the player has been seen
-        // - prevent further callings of the CanSeePlayer function
-        // - stop patrolling
-        // - enable the seeker script
+        //  prevent further callings of the CanSeePlayer function
         if (!canSeePlayer)
         {
             if (!isEnableCanSeePlayerCRRunning)
@@ -60,6 +60,13 @@ public class EnemyAI : MonoBehaviour
         if (canSeePlayer)
         {
             ChasePlayer();
+
+            // stop chasing if too close
+            if (Vector2.Distance(transform.position, target.position) < 1.3f)
+                move = 0.01f;
+            else
+                move = 1;
+
             if (IsPlayerInAttackRange())
                 combat.Attack();
         }
@@ -73,7 +80,7 @@ public class EnemyAI : MonoBehaviour
             return;
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rbEnemy.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+        Vector2 force = direction * speed * Time.deltaTime * move;
         rbEnemy.AddForce(force);
 
         float distance = Vector2.Distance(rbEnemy.position, path.vectorPath[currentWaypoint]);
