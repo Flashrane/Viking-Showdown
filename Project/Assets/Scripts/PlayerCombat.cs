@@ -6,7 +6,8 @@ public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
     public Transform attackPoint;
-    public LayerMask enemyLayers;
+    [SerializeField] LayerMask enemyLayers;
+    [SerializeField] LayerMask obstacleLayer;
     PlayerController movementInfo;
     AnimationManager playerAnimator;
     AnimationManager axeAnimator;
@@ -74,12 +75,19 @@ public class PlayerCombat : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         if (hitEnemies.Length != 0)
         {
-            isInCombat = true;
-            nextOutOfCombatTime = Time.time + 5f;
+            // check if there is an obstacle in front of the enemies inside the attackRange range
+            if (HitObstacle(hitEnemies))
+            {
+                Invoke("AttackCompleted", 1f / attackSpeed);
+                return;
+            }
 
             int closestIdx = 0;
             if (hitEnemies.Length > 1)
                 closestIdx = FindClosestEnemy(hitEnemies);
+
+            isInCombat = true;
+            nextOutOfCombatTime = Time.time + 5f;
 
             LookAtEnemy(hitEnemies[closestIdx]);
 
@@ -108,9 +116,26 @@ public class PlayerCombat : MonoBehaviour
         Invoke("AttackCompleted", 1f / attackSpeed);
     }
 
+    bool HitObstacle(Collider2D[] enemiesInRange)
+    {
+        foreach (Collider2D enemy in enemiesInRange)
+        {
+            RaycastHit2D hitObstacle = Physics2D.Linecast(attackPoint.position, enemy.transform.position, obstacleLayer);
+            //RaycastHit2D hitObstacle = Physics2D.Raycast(attackPoint.position, hitDirection, attackRange, obstacleLayer);
+            
+            if (hitObstacle)
+            {
+                Debug.Log(hitObstacle.collider.name + " is in the way");
+                return true;
+            }
+        }
+        return false;
+    }
+
     void AttackCompleted()
     {
         isAttacking = false;
+        playerAnimator.ChangeAnimationState(AnimationManager.PLAYER_IDLE);
         axeAnimator.ChangeAnimationState(AnimationManager.AXE_IDLE);
     }
 
@@ -131,7 +156,7 @@ public class PlayerCombat : MonoBehaviour
         }
         return closestIdx;
     }
-
+    
     void LookAtEnemy(Collider2D enemy)
     {
         Vector2 lookDir = enemy.GetComponent<Rigidbody2D>().position - rbPlayer.position;
@@ -155,6 +180,7 @@ public class PlayerCombat : MonoBehaviour
             SlowDown();
         }
     }
+
 
     void Die()
     {
