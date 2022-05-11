@@ -13,15 +13,18 @@ public class EnemyCombat : MonoBehaviour
 
     public LayerMask playerLayer;
 
+    [SerializeField] AnimationManager animationManager;
+
     void Start()
     {
-        playerCombatInfo = GameObject.Find("Player").GetComponent<PlayerCombat>();    
+        playerCombatInfo = GameObject.Find("Player").GetComponent<PlayerCombat>();
+        animationManager = GetComponent<AnimationManager>();
     }
 
     public void Attack()
     {
         isAttacking = true;
-
+        
         Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
         if (hitPlayer != null)
         {
@@ -29,12 +32,9 @@ public class EnemyCombat : MonoBehaviour
 
             playerCombatInfo.TakeDamage(attackPower);
         }
-        else
-        {
-            Debug.Log("enemy hit missed");
-        }
+
         Invoke("AttackCompleted", 1f / attackSpeed);
-    }
+}
 
     void AttackCompleted()
     {

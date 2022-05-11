@@ -52521,6 +52521,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
+  animationManager: {fileID: 0}
 --- !u!1 &696975573339797325
 GameObject:
   m_ObjectHideFlags: 0
@@ -52555,6 +52556,9 @@ GameObject:
   - component: {fileID: 301106622603287615}
   - component: {fileID: 9090465589660230900}
   - component: {fileID: 7537471589162829387}
+  - component: {fileID: 750237731494455330}
+  - component: {fileID: 750237731494455328}
+  - component: {fileID: 750237731494455329}
   m_Layer: 6
   m_Name: Warrior
   m_TagString: Enemy
@@ -52562,6 +52566,50 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &750237731494455328
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750237731494455327}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 67647e24d21cb5246abfbb3e6946b6ed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &750237731494455329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750237731494455327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f4aad169d0828c49a8af075310ff703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 750237731494455328}
+--- !u!114 &750237731494455330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750237731494455327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d1eb8f4d3c83c488101a83ad2febbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &887727597620619115
 Transform:
   m_ObjectHideFlags: 0
@@ -52771,8 +52819,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0052325167, y: -0.0020941494}
-  m_Size: {x: 1.0037385, y: 0.9895416}
+  m_Offset: {x: 0.034243524, y: 0.047219794}
+  m_Size: {x: 0.9225103, y: 0.44995072}
   m_Direction: 1
 --- !u!4 &1922251300428893873
 Transform:
@@ -53662,7 +53710,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 5
   m_AngularDrag: 1000
   m_GravityScale: 0
@@ -55320,10 +55368,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 02a93a09bf646c9429194f9f3fb54740, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 44367cbdbeb3276489641375fa73fd3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
-  m_FlipY: 1
+  m_FlipX: 0
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 4.19, y: 4.19}
   m_AdaptiveModeThreshold: 0.5

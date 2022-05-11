@@ -18,6 +18,10 @@ public class AnimationManager : MonoBehaviour
     public static string AXE_DODGE_LEFT = "Axe_Dodge_Left";
     public static string AXE_DODGE_RIGHT = "Axe_Dodge_Right";
 
+    public static string BOSS_IDLE = "Boss_Idle";
+    public static string BOSS_WALK = "Boss_Walk";
+    public static string BOSS_ATTACK = "Boss_Attack";
+
     public void ChangeAnimationState(string newState)
     {
         if (currentState == newState)
