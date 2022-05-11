@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Boat boatScript;
     [SerializeField] PolygonCollider2D seaCollider;
 
+    [SerializeField] Collider2D bossFightCollider;
+
     void Awake()
     {
         rbPlayer = GetComponent<Rigidbody2D>();
@@ -210,6 +212,13 @@ public class PlayerController : MonoBehaviour
                 Color color = Color.yellow;
                 color.a = 0.45f;
                 runwayPad.color = color;
+            }
+        }
+        else if (Objective.sceneIndex == 3)
+        {
+            if (Objective.objectiveIndex == 3 && collision.name == "bossFightCollider")
+            {
+                bossFightCollider.isTrigger = false;
             }
         }
     }

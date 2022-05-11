@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     private EnemyAI aiScript;
 
     public EnemyHealthBar healthBar;
-    int maxHealth = 100;
+    [SerializeField] int maxHealth = 100;
     int currentHealth;
 
     float flashTime = 0.1f;
@@ -31,7 +31,8 @@ public class Enemy : MonoBehaviour
 
         originalSpeed = aiScript.speed;
         currentHealth = maxHealth;
-        EnemiesRemaining++;
+        if (gameObject.transform.parent.gameObject.name != "Boss")
+            EnemiesRemaining++;
     }
 
     void Update()
@@ -42,7 +43,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.SetSize((float)currentHealth/100f); // normalize currentHealth value to stay between 0 and 1
+        healthBar.SetSize((float)currentHealth/maxHealth); // normalize currentHealth value to stay between 0 and 1
 
         if (currentHealth <= 0)
             Die();
@@ -50,7 +51,7 @@ public class Enemy : MonoBehaviour
         {
             StopMoving();
             FlashWhite();            
-            if (currentHealth < 30)
+            if (currentHealth < (maxHealth * 0.3))
             {
                 healthBar.SetColor("FF6303");
             }
