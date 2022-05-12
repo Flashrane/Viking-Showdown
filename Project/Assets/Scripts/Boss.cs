@@ -4,42 +4,29 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    AnimationManager animationManager;
+    Animator anim;
     EnemyCombat combat;
+    EnemyAI aiScript;
     Rigidbody2D rb;
-
-    Coroutine attackCR = null;
 
     void Start()
     {
-        animationManager = GetComponent<AnimationManager>();
+        anim = GetComponent<Animator>();
         combat = GetComponent<EnemyCombat>();
+        aiScript = GetComponent<EnemyAI>();
         rb = GetComponent<Rigidbody2D>();
-
-        animationManager.ChangeAnimationState(AnimationManager.BOSS_IDLE);
     }
 
     void Update()
     {
         if (combat.isAttacking)
-            if (attackCR == null)
-                attackCR = StartCoroutine(AttackAnim());
+            anim.SetBool("isAttacking", true);
         else
-        {
-            if (rb.velocity.magnitude < 0.1f)
-                animationManager.ChangeAnimationState(AnimationManager.BOSS_IDLE);
-            else
-                animationManager.ChangeAnimationState(AnimationManager.BOSS_WALK);
-        }
-    }
+            anim.SetBool("isAttacking", false);
 
-    IEnumerator AttackAnim()
-    {
-
-        animationManager.ChangeAnimationState(AnimationManager.BOSS_ATTACK);
-        yield return new WaitForSeconds(0.2f);
-        animationManager.ChangeAnimationState(AnimationManager.BOSS_IDLE);
-
-        attackCR = null;
+        if (rb.velocity.magnitude < 0.1f)
+            anim.SetBool("isRunning", false);
+        else
+            anim.SetBool("isRunning", true);
     }
 }

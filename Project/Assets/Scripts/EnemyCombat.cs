@@ -8,17 +8,14 @@ public class EnemyCombat : MonoBehaviour
     public Transform attackPoint;
     [SerializeField] int attackPower = 10;
     public float attackRange = 2.5f;
-    [SerializeField] float attackSpeed = 1f;
+    public float attackSpeed = 1f;
     public bool isAttacking = false;
 
     public LayerMask playerLayer;
 
-    [SerializeField] AnimationManager animationManager;
-
     void Start()
     {
         playerCombatInfo = GameObject.Find("Player").GetComponent<PlayerCombat>();
-        animationManager = GetComponent<AnimationManager>();
     }
 
     public void Attack()
@@ -33,7 +30,7 @@ public class EnemyCombat : MonoBehaviour
             playerCombatInfo.TakeDamage(attackPower);
         }
 
-        Invoke("AttackCompleted", 1f / attackSpeed);
+        Invoke("AttackCompleted", attackSpeed);
 }
 
     void AttackCompleted()

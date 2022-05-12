@@ -25,6 +25,9 @@ public class EnemyAI : MonoBehaviour
     bool isEnableCanSeePlayerCRRunning = false;
     
     float move = 1; // used as a boolean
+    [SerializeField] float stopMovingDistance = 1.3f;
+
+    float nextAttackTime = 0f;
 
     void Start()
     {
@@ -62,13 +65,16 @@ public class EnemyAI : MonoBehaviour
             ChasePlayer();
 
             // stop chasing if too close
-            if (Vector2.Distance(transform.position, target.position) < 1.3f)
+            if (Vector2.Distance(transform.position, target.position) < stopMovingDistance)
                 move = 0.01f;
             else
                 move = 1;
 
-            if (IsPlayerInAttackRange())
+            if (IsPlayerInAttackRange() && nextAttackTime <= Time.time)
+            {
                 combat.Attack();
+                nextAttackTime = Time.time + (1 / combat.attackSpeed);
+            }
         }
     }
 
