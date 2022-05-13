@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
+    new AudioManager audio;
     Rigidbody2D rbPlayer;
     PlayerCombat combatInfo;
     public AnimationManager playerAnimator;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        audio = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         rbPlayer = GetComponent<Rigidbody2D>();
         combatInfo = GetComponent<PlayerCombat>();
 
@@ -63,11 +65,16 @@ public class PlayerController : MonoBehaviour
                 if (!isDodging)
                 {
                     if (staminaBar.stamina < StaminaBar.Cost.DODGE)
+                    {
                         Debug.Log("Not enough stamina");
+                        audio.Play("StaminaDrained");
+                    }
                     else
                     {
                         Dodge();
                         staminaBar.UseStamina(StaminaBar.Cost.DODGE);
+
+                        audio.Play("PlayerDodge");
                     }
                 }
             }

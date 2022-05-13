@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
+    new AudioManager audio;
     public Transform attackPoint;
     [SerializeField] LayerMask enemyLayers;
     [SerializeField] LayerMask obstacleLayer;
@@ -30,6 +31,7 @@ public class PlayerCombat : MonoBehaviour
 
     void Start()
     {
+        audio = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         rbPlayer = GetComponent<Rigidbody2D>();
         movementInfo = GetComponent<PlayerController>();
         playerAnimator = movementInfo.playerAnimator;
@@ -72,6 +74,8 @@ public class PlayerCombat : MonoBehaviour
         playerAnimator.ChangeAnimationState(AnimationManager.PLAYER_ATTACK);
         axeAnimator.ChangeAnimationState(AnimationManager.AXE_ATTACK);
 
+        audio.Play("AxeSwing");
+
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         if (hitEnemies.Length != 0)
         {
@@ -109,6 +113,8 @@ public class PlayerCombat : MonoBehaviour
             Enemy enemyScript = hitEnemies[closestIdx].GetComponent<Enemy>();
             enemyScript.TakeDamage(damage);
             enemyScript.KnockBack(rbEnemy.position - rbPlayer.position, attackPower * (rbPlayer.velocity.magnitude + 1f));
+
+            audio.Play("AxeImpactPlayer");
 
             //Debug.Log(hitEnemies[closestIdx].name + " got hit.");
         }
@@ -169,10 +175,14 @@ public class PlayerCombat : MonoBehaviour
         FlashRed();
 
         if (healthBar.health <= 0)
+        {
             Die();
+            audio.Play("PlayerDeath");
+        }
         else
         {
             SlowDown();
+            audio.Play("PlayerInjure");
         }
     }
 

@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 public class StartMenu : MonoBehaviour
 {
     public LevelChanger levelChanger;
+    new AudioManager audio;
     public GameObject startMenuUI;
 
-    void Update()
+    void Awake()
     {
+        audio = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+
+        audio.Play("StartMenuMusic");
     }
 
     public void ExitGame()

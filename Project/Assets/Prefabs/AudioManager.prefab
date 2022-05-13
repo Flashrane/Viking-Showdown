@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1368561833752586287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1368561833752586289}
+  - component: {fileID: 1368561833752586288}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1368561833752586289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368561833752586287}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1368561833752586288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368561833752586287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b4cc655c41e214bbf38b63a84fb595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: PlayerInjure
+    clip: {fileID: 8300000, guid: aae2b48dbaa292f4b9eedf4f2da8443e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: f014ce815beda4242b7a5c527df66723, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: StaminaDrained
+    clip: {fileID: 8300000, guid: 2f27dc5d35b489946a2ccc9ef320152b, type: 3}
+    volume: 0.35
+    pitch: 2.5
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerDodge
+    clip: {fileID: 8300000, guid: 18f9eb456c469184a98f2c3a2db12677, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GuardInjure
+    clip: {fileID: 8300000, guid: 36e7c5edf9e37b24e9d7f7c7749f78cf, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GuardDeath
+    clip: {fileID: 8300000, guid: af38e408ca4de2240b154839e23e04e5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: AxeSwing
+    clip: {fileID: 8300000, guid: a205f6f17730b2a47bfcd471bdc7d82d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: AxeImpactPlayer
+    clip: {fileID: 8300000, guid: b15134efe0d207a48b71ad1922f36995, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: AxeImpactEnemy
+    clip: {fileID: 8300000, guid: 24a65d981be42be4685d09cc92c714b1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SlapImpact
+    clip: {fileID: 8300000, guid: 06cb3d445252f774f8493b82a87ebe0a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SlapSwing
+    clip: {fileID: 8300000, guid: 57247d106f1c76940874f3183e9048c5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: StartMenuMusic
+    clip: {fileID: 8300000, guid: 9e6d20148be7b074f83880a513e29a91, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}

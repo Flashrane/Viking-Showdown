@@ -6,6 +6,7 @@ using Pathfinding;
 public class Enemy : MonoBehaviour
 {
     private EnemyAI aiScript;
+    new AudioManager audio;
 
     public EnemyHealthBar healthBar;
     [SerializeField] int maxHealth = 100;
@@ -24,6 +25,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         aiScript = GetComponent<EnemyAI>();
+        audio = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         sprRenderer = GetComponent<SpriteRenderer>();
         shaderGUIText = Shader.Find("GUI/Text Shader");
         shaderSpritesDefault = Shader.Find("Sprites/Default");
@@ -46,7 +48,10 @@ public class Enemy : MonoBehaviour
         healthBar.SetSize((float)currentHealth/maxHealth); // normalize currentHealth value to stay between 0 and 1
 
         if (currentHealth <= 0)
+        {
             Die();
+            audio.Play("GuardDeath");
+        }
         else
         {
             StopMoving();
@@ -55,6 +60,8 @@ public class Enemy : MonoBehaviour
             {
                 healthBar.SetColor("FF6303");
             }
+
+            audio.Play("GuardInjure");
         }
 
         if (!aiScript.canSeePlayer)

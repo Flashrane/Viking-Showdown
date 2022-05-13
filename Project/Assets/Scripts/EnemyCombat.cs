@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyCombat : MonoBehaviour
 {
+    new AudioManager audio;
     PlayerCombat playerCombatInfo;
     public Transform attackPoint;
     [SerializeField] int attackPower = 10;
@@ -15,20 +16,32 @@ public class EnemyCombat : MonoBehaviour
 
     void Start()
     {
+        audio = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         playerCombatInfo = GameObject.Find("Player").GetComponent<PlayerCombat>();
     }
 
     public void Attack()
     {
         isAttacking = true;
-        
+
+        if (gameObject.transform.parent.name == "EnemyWarrior")
+            audio.Play("AxeSwing");
+        else if (gameObject.transform.parent.name == "Boss")
+            audio.Play("SlapSwing");
+
         Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
         if (hitPlayer != null)
         {
             Debug.Log("player got hit");
 
             playerCombatInfo.TakeDamage(attackPower);
+
+            if (gameObject.transform.parent.name == "EnemyWarrior")
+                audio.Play("AxeImpactEnemy");
+            else if (gameObject.transform.parent.name == "Boss")
+                audio.Play("SlapImpact");
         }
+
 
         Invoke("AttackCompleted", attackSpeed);
 }
