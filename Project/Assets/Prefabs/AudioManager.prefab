@@ -116,3 +116,21 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: ButtonHover
+    clip: {fileID: 8300000, guid: d5222b62c569e5e40985843cb226c69b, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ButtonSelect
+    clip: {fileID: 8300000, guid: 92ffd21d5c5abae4ea59efbac4dd20b0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuBackward
+    clip: {fileID: 8300000, guid: 5a9f66213f2b5c5498a07ebfb53ac98b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
