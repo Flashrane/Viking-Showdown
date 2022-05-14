@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class Boat : MonoBehaviour
 {
+    new AudioManager audio;
     [SerializeField] GameManager gameManager;
     [SerializeField] LevelChanger levelChanger;
     [SerializeField] Transform boat;
     [SerializeField] GameObject player;
     [SerializeField] PolygonCollider2D seaCollider;
+
+    void Start()
+    {
+        audio = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audio.Play("Boat");
+    }
 
     void Update()
     {
@@ -35,6 +42,7 @@ public class Boat : MonoBehaviour
         {
             if (collision.name == "shore")
             {
+                audio.Stop("Boat");
                 seaCollider.enabled = false;
                 gameManager.EnableGameplay();
                 player.GetComponent<PlayerController>().hasReachedShore = true;

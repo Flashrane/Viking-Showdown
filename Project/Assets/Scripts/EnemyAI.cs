@@ -5,6 +5,8 @@ using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
+    new AudioManager audio;
+
     Transform target;
     Rigidbody2D rbEnemy;
     EnemyCombat combat;
@@ -31,6 +33,7 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
+        audio = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         target = GameObject.Find("Player").GetComponent<Transform>();
         combat = GetComponent<EnemyCombat>();
         seeker = GetComponent<Seeker>();
@@ -57,6 +60,11 @@ public class EnemyAI : MonoBehaviour
                     if (isPatrolling)
                         StopPatrolling();
                     EnableSeeker();
+
+                    if (gameObject.transform.parent.name == "Boss")
+                        audio.Play("BossSurprise");
+                    else if (gameObject.transform.parent.name == "EnemyWarrior")
+                        audio.Play("GuardSurprise");
                 }
             }
         }

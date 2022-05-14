@@ -30,6 +30,7 @@ public class PauseMenu : MonoBehaviour
                     Resume();
                 else
                 {
+                    audio.Play("MenuBackward");
                     controlsMenuUI.SetActive(false);
                     audioMenuUI.SetActive(false);
                     pauseMenuUI.SetActive(true);
@@ -42,7 +43,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        audio.Play("ButtonSelect");
+        audio.Play("MenuBackward");
         gameManager.EnableGameplay();
         pauseMenuUI.SetActive(false);
         shadow.SetActive(false);

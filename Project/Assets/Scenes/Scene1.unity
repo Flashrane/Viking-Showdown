@@ -8603,14 +8603,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1368561833752586288, guid: 25af55b54d2b582499254622e8bd61e3, type: 3}
-      propertyPath: sounds.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: aae2b48dbaa292f4b9eedf4f2da8443e, type: 3}
-    - target: {fileID: 1368561833752586288, guid: 25af55b54d2b582499254622e8bd61e3, type: 3}
-      propertyPath: sounds.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: f014ce815beda4242b7a5c527df66723, type: 3}
     - target: {fileID: 1368561833752586289, guid: 25af55b54d2b582499254622e8bd61e3, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -8994,6 +8986,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1785520987866222998, guid: 0351048a67c61b24fa23e512a9dc250d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4266060815510510904, guid: 0351048a67c61b24fa23e512a9dc250d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -9196,6 +9192,11 @@ GameObject:
 --- !u!1 &5924176585865815443 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5737106067814087191, guid: 0351048a67c61b24fa23e512a9dc250d, type: 3}
+  m_PrefabInstance: {fileID: 5924176585865815437}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5924176585865815444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5089931837951406887, guid: 0351048a67c61b24fa23e512a9dc250d, type: 3}
   m_PrefabInstance: {fileID: 5924176585865815437}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6804970103387631314
@@ -9497,6 +9498,10 @@ PrefabInstance:
       propertyPath: gameplayUI
       value: 
       objectReference: {fileID: 5924176585865815443}
+    - target: {fileID: 7904974143491904106, guid: 1c49834515430834f8debc7c1aa06306, type: 3}
+      propertyPath: menuButtonUI
+      value: 
+      objectReference: {fileID: 5924176585865815444}
     - target: {fileID: 7904974143491904106, guid: 1c49834515430834f8debc7c1aa06306, type: 3}
       propertyPath: gameWinScreen
       value: 

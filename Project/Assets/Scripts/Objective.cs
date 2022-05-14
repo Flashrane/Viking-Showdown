@@ -6,6 +6,7 @@ using TMPro;
 
 public class Objective : MonoBehaviour
 {
+    new AudioManager audio;
     [SerializeField] TextMeshProUGUI currentObjective;
     public static int sceneIndex;
     public string[] objectives;
@@ -15,6 +16,7 @@ public class Objective : MonoBehaviour
 
     void Start()
     {
+        audio = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         objectiveIndex = 0;
@@ -38,6 +40,8 @@ public class Objective : MonoBehaviour
 
     public void NextObjective()
     {
+        audio.Play("ObjectiveComplete");
+
         objectiveIndex++;
         if (objectiveIndex == objectives.Length)
         {

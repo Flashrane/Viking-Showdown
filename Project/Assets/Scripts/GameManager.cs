@@ -6,16 +6,23 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    new AudioManager audio;
     [SerializeField] GameObject player;
     [SerializeField] GameObject shadow;
     [SerializeField] GameObject gameWinScreen;
     [SerializeField] GameObject gameOverScreen;
     [SerializeField] GameObject gameplay;
-    [SerializeField] Collider2D bossFightCollider;    
+    [SerializeField] Collider2D bossFightCollider;
+    [SerializeField] GameObject menuButtonUI;
 
     public static bool GameIsPaused = false;
     public static bool GameHasEnded = false;
     public static bool isPlayerAlive = true;
+
+    void Start()
+    {
+        audio = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
 
     void Update()
     {
@@ -24,14 +31,21 @@ public class GameManager : MonoBehaviour
         
         gameplay.SetActive(false);
         shadow.SetActive(true);
+        Invoke("ShowMenuButton", 3f);
         if (isPlayerAlive)
         {
+            GameHasEnded = false;
             bossFightCollider.enabled = false;
             gameWinScreen.SetActive(true);
+            audio.Stop("GameMusic");
+            Invoke("PlayWinSound", 0.3f);
         }
         else
         {
-            gameOverScreen.SetActive(true);    
+            GameHasEnded = false;
+            gameOverScreen.SetActive(true);
+            audio.Stop("GameMusic");
+            audio.Play("GameOver");
         }
     }
 
@@ -48,5 +62,15 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerController>().enabled = true;
         player.GetComponent<PlayerCombat>().enabled = true;
         player.GetComponent<CapsuleCollider2D>().enabled = true;
+    }
+
+    void ShowMenuButton()
+    {
+        menuButtonUI.SetActive(true);
+    }
+
+    void PlayWinSound()
+    {
+        audio.Play("GameWin");
     }
 }

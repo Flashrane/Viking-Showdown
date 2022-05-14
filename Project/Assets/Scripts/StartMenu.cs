@@ -32,6 +32,7 @@ public class StartMenu : MonoBehaviour
         {
             if (!startMenuUI.activeSelf)
             {
+                audio.Play("MenuBackward");
                 controlsMenuUI.SetActive(false);
                 audioMenuUI.SetActive(false);
                 startMenuUI.SetActive(true);

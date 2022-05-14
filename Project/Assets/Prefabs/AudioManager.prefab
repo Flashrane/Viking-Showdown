@@ -138,9 +138,9 @@ MonoBehaviour:
   - name: GameMusic
     clip: {fileID: 8300000, guid: 289f3cb8161f56c489c0f194408f8699, type: 3}
     output: {fileID: 24300002, guid: 50d88864466cfeb47978553d9dac1010, type: 2}
-    volume: 0.1
+    volume: 0.25
     pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: ButtonHover
     clip: {fileID: 8300000, guid: d5222b62c569e5e40985843cb226c69b, type: 3}
@@ -152,6 +152,13 @@ MonoBehaviour:
   - name: ButtonSelect
     clip: {fileID: 8300000, guid: 92ffd21d5c5abae4ea59efbac4dd20b0, type: 3}
     output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ObjectiveComplete
+    clip: {fileID: 8300000, guid: 651457a228078b84a846b93bca2e01b6, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
     volume: 1
     pitch: 1
     loop: 0
@@ -162,4 +169,39 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - name: GameWin
+    clip: {fileID: 8300000, guid: d26a3d98ebf09b44ea48f7b9ed10c684, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: b64ac2f297690c640ad3b75024199a3a, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Boat
+    clip: {fileID: 8300000, guid: 2e6db95eeb703b04c8e7764ee3fd37f2, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: BossSurprise
+    clip: {fileID: 8300000, guid: 725377b6c48ab56439607279185da1d6, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: GuardSurprise
+    clip: {fileID: 8300000, guid: 38961581a2ba882408c349ef93c1b78d, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
     source: {fileID: 0}

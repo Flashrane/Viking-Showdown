@@ -22,7 +22,11 @@ public class Boss : MonoBehaviour
     void Update()
     {
         if (boss.enabled == false)
+        {
             GameManager.GameHasEnded = true;
+            anim.SetBool("isRunning", false);
+            this.enabled = false;
+        }
 
         if (combat.isAttacking)
             anim.SetBool("isAttacking", true);
