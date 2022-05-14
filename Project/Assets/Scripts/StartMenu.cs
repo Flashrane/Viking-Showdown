@@ -10,6 +10,10 @@ public class StartMenu : MonoBehaviour
 {
     new AudioManager audio;
 
+    [SerializeField] GameObject startMenuUI;
+    [SerializeField] GameObject controlsMenuUI;
+    [SerializeField] GameObject audioMenuUI;
+
     void Awake()
     {
         audio = GameObject.Find("AudioManager").GetComponent<AudioManager>();
@@ -20,6 +24,19 @@ public class StartMenu : MonoBehaviour
     void Start()
     {
         Invoke("EnableHoverSound", 2f);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!startMenuUI.activeSelf)
+            {
+                controlsMenuUI.SetActive(false);
+                audioMenuUI.SetActive(false);
+                startMenuUI.SetActive(true);
+            }
+        }
     }
 
     void EnableHoverSound()

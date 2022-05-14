@@ -7,9 +7,33 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject player;
+    [SerializeField] GameObject shadow;
+    [SerializeField] GameObject gameWinScreen;
+    [SerializeField] GameObject gameOverScreen;
+    [SerializeField] GameObject gameplay;
+    [SerializeField] Collider2D bossFightCollider;    
 
     public static bool GameIsPaused = false;
     public static bool GameHasEnded = false;
+    public static bool isPlayerAlive = true;
+
+    void Update()
+    {
+        if (!GameHasEnded)
+            return;
+        
+        gameplay.SetActive(false);
+        shadow.SetActive(true);
+        if (isPlayerAlive)
+        {
+            bossFightCollider.enabled = false;
+            gameWinScreen.SetActive(true);
+        }
+        else
+        {
+            gameOverScreen.SetActive(true);    
+        }
+    }
 
     public void DisableGameplay()
     {

@@ -47,7 +47,7 @@ MonoBehaviour:
   - name: PlayerInjure
     clip: {fileID: 8300000, guid: aae2b48dbaa292f4b9eedf4f2da8443e, type: 3}
     output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
-    volume: 1
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -68,7 +68,7 @@ MonoBehaviour:
   - name: PlayerDodge
     clip: {fileID: 8300000, guid: 18f9eb456c469184a98f2c3a2db12677, type: 3}
     output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
-    volume: 1
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -89,21 +89,21 @@ MonoBehaviour:
   - name: AxeSwing
     clip: {fileID: 8300000, guid: a205f6f17730b2a47bfcd471bdc7d82d, type: 3}
     output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
-    volume: 1
+    volume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: AxeImpactPlayer
     clip: {fileID: 8300000, guid: b15134efe0d207a48b71ad1922f36995, type: 3}
     output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: AxeImpactEnemy
     clip: {fileID: 8300000, guid: 24a65d981be42be4685d09cc92c714b1, type: 3}
     output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}

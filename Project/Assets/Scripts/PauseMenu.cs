@@ -8,8 +8,10 @@ public class PauseMenu : MonoBehaviour
 {
     GameManager gameManager;
     new AudioManager audio;
-    public GameObject pauseMenuUI;
-    public GameObject gameplay;
+    [SerializeField] GameObject pauseMenuUI;
+    [SerializeField] GameObject controlsMenuUI;
+    [SerializeField] GameObject audioMenuUI;
+    [SerializeField] GameObject gameplay;
     [SerializeField] GameObject shadow;
 
     void Awake()
@@ -26,6 +28,12 @@ public class PauseMenu : MonoBehaviour
             {
                 if (pauseMenuUI.activeSelf)
                     Resume();
+                else
+                {
+                    controlsMenuUI.SetActive(false);
+                    audioMenuUI.SetActive(false);
+                    pauseMenuUI.SetActive(true);
+                }
             }
             else
                 Pause();

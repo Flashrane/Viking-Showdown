@@ -189,10 +189,14 @@ public class PlayerCombat : MonoBehaviour
 
     void Die()
     {
-        playerAnimator.ChangeAnimationState(AnimationManager.PLAYER_IDLE);
+        GameManager.GameHasEnded = true;
+        GameManager.isPlayerAlive = false;
+
+        sprRenderer.sortingOrder = 0;
+        CancelInvoke();
+        sprRenderer.color = Color.black;
+        gameManager.DisableGameplay();
         axeAnimator.ChangeAnimationState(AnimationManager.AXE_IDLE);
-        movementInfo.enabled = false;
-        this.enabled = false;
     }
 
     void FlashRed()

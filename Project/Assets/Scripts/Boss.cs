@@ -5,13 +5,15 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     Animator anim;
-    EnemyCombat combat;
+    Enemy boss;
     EnemyAI aiScript;
+    EnemyCombat combat;
     Rigidbody2D rb;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+        boss = GetComponent<Enemy>();
         combat = GetComponent<EnemyCombat>();
         aiScript = GetComponent<EnemyAI>();
         rb = GetComponent<Rigidbody2D>();
@@ -19,6 +21,9 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
+        if (boss.enabled == false)
+            GameManager.GameHasEnded = true;
+
         if (combat.isAttacking)
             anim.SetBool("isAttacking", true);
         else

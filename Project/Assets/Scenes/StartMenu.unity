@@ -298,6 +298,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f813f2a29f1b86141957ef23f59e6a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startMenuUI: {fileID: 1851333937}
+  controlsMenuUI: {fileID: 456749183840376645}
+  audioMenuUI: {fileID: 207366989}
 --- !u!1001 &642287825
 PrefabInstance:
   m_ObjectHideFlags: 0
