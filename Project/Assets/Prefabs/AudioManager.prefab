@@ -46,90 +46,105 @@ MonoBehaviour:
   sounds:
   - name: PlayerInjure
     clip: {fileID: 8300000, guid: aae2b48dbaa292f4b9eedf4f2da8443e, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: PlayerDeath
     clip: {fileID: 8300000, guid: f014ce815beda4242b7a5c527df66723, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: StaminaDrained
     clip: {fileID: 8300000, guid: 2f27dc5d35b489946a2ccc9ef320152b, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
     volume: 0.35
     pitch: 2.5
     loop: 0
     source: {fileID: 0}
   - name: PlayerDodge
     clip: {fileID: 8300000, guid: 18f9eb456c469184a98f2c3a2db12677, type: 3}
+    output: {fileID: 0}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: GuardInjure
     clip: {fileID: 8300000, guid: 36e7c5edf9e37b24e9d7f7c7749f78cf, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: GuardDeath
     clip: {fileID: 8300000, guid: af38e408ca4de2240b154839e23e04e5, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: AxeSwing
     clip: {fileID: 8300000, guid: a205f6f17730b2a47bfcd471bdc7d82d, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: AxeImpactPlayer
     clip: {fileID: 8300000, guid: b15134efe0d207a48b71ad1922f36995, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: AxeImpactEnemy
     clip: {fileID: 8300000, guid: 24a65d981be42be4685d09cc92c714b1, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: SlapImpact
     clip: {fileID: 8300000, guid: 06cb3d445252f774f8493b82a87ebe0a, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: SlapSwing
     clip: {fileID: 8300000, guid: 57247d106f1c76940874f3183e9048c5, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: StartMenuMusic
     clip: {fileID: 8300000, guid: 9e6d20148be7b074f83880a513e29a91, type: 3}
+    output: {fileID: 24300002, guid: 50d88864466cfeb47978553d9dac1010, type: 2}
     volume: 1
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: ButtonHover
     clip: {fileID: 8300000, guid: d5222b62c569e5e40985843cb226c69b, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
     volume: 0
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: ButtonSelect
     clip: {fileID: 8300000, guid: 92ffd21d5c5abae4ea59efbac4dd20b0, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: MenuBackward
     clip: {fileID: 8300000, guid: 5a9f66213f2b5c5498a07ebfb53ac98b, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
     volume: 1
     pitch: 1
     loop: 0
