@@ -539,6 +539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5974698943707837503}
   - component: {fileID: 5974698943707837502}
+  - component: {fileID: 5150991528093956916}
   m_Layer: 5
   m_Name: AudioMenu
   m_TagString: Untagged
@@ -576,6 +577,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5974698943707837500}
   m_CullTransparentMesh: 1
+--- !u!114 &5150991528093956916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5974698943707837500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b33cfa0615cdaf40a5fe87267f8bf06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameplaySlider: {fileID: 5974698942851862279}
+  musicSlider: {fileID: 5974698943526886154}
 --- !u!1 &5974698943892253460
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,6 +604,8 @@ GameObject:
   - component: {fileID: 5974698943892253464}
   - component: {fileID: 5974698943892253465}
   - component: {fileID: 5974698943892253462}
+  - component: {fileID: 1310549746964194187}
+  - component: {fileID: 5859632248995983586}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -722,18 +739,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &5974698943892253462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -779,6 +784,30 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1310549746964194187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5974698943892253460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9815904bc6f5d3f4a846be3b219a7075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5859632248995983586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5974698943892253460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbea7da7fadc7e4fb2bb16323593f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5974698943905197808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,7 +1428,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GLOBALIS
+  m_text: JATEK
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b46d6faae31be145972ae7318adc398, type: 2}
   m_sharedMaterial: {fileID: -5042493195862138375, guid: 6b46d6faae31be145972ae7318adc398, type: 2}

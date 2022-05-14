@@ -67,7 +67,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PlayerDodge
     clip: {fileID: 8300000, guid: 18f9eb456c469184a98f2c3a2db12677, type: 3}
-    output: {fileID: 0}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
     volume: 1
     pitch: 1
     loop: 0
@@ -127,6 +127,13 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: GameMusic
+    clip: {fileID: 8300000, guid: 289f3cb8161f56c489c0f194408f8699, type: 3}
+    output: {fileID: 24300002, guid: 50d88864466cfeb47978553d9dac1010, type: 2}
+    volume: 0.1
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
   - name: ButtonHover
     clip: {fileID: 8300000, guid: d5222b62c569e5e40985843cb226c69b, type: 3}

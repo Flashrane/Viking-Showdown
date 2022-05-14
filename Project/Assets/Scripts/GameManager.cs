@@ -11,10 +11,6 @@ public class GameManager : MonoBehaviour
     public static bool GameIsPaused = false;
     public static bool GameHasEnded = false;
 
-    void Update()
-    {
-    }
-
     public void DisableGameplay()
     {
         player.GetComponent<AnimationManager>().ChangeAnimationState(AnimationManager.PLAYER_IDLE);

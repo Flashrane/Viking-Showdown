@@ -2,17 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
+    GameManager gameManager;
+    new AudioManager audio;
     public GameObject pauseMenuUI;
+    public GameObject gameplay;
+    [SerializeField] GameObject shadow;
+
+    void Awake()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        audio = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameManager.GameIsPaused)
-                Resume();
+            {
+                if (pauseMenuUI.activeSelf)
+                    Resume();
+            }
             else
                 Pause();
         }
@@ -20,14 +34,22 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        audio.Play("ButtonSelect");
+        gameManager.EnableGameplay();
         pauseMenuUI.SetActive(false);
+        shadow.SetActive(false);
+        gameplay.SetActive(true);
         Time.timeScale = 1f;
         GameManager.GameIsPaused = false;
     }
 
     void Pause()
     {
+        audio.Play("ButtonSelect");
+        gameManager.DisableGameplay();
         pauseMenuUI.SetActive(true);
+        shadow.SetActive(true);
+        gameplay.SetActive(false);
         Time.timeScale = 0f;
         GameManager.GameIsPaused = true;
     }
@@ -35,11 +57,18 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         Time.timeScale = 1f;
+        audio.Stop("GameMusic");
+        GameManager.GameIsPaused = false;
         SceneManager.LoadScene("StartMenu");
     }
 
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void Select()
+    {
+        audio.Play("ButtonSelect");
     }
 }

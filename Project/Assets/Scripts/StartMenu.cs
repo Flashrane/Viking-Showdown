@@ -8,9 +8,7 @@ using UnityEngine.UI;
 
 public class StartMenu : MonoBehaviour
 {
-    public LevelChanger levelChanger;
     new AudioManager audio;
-    public GameObject startMenuUI;
 
     void Awake()
     {
@@ -50,5 +48,10 @@ public class StartMenu : MonoBehaviour
     public void Select()
     {
         audio.Play("ButtonSelect");
+    }
+
+    private void OnDestroy()
+    {
+        audio.Stop("StartMenuMusic");
     }
 }
