@@ -72,6 +72,13 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: RunningOnGrass
+    clip: {fileID: 8300000, guid: dc26d931845f41f4a9bb7b763499f0b5, type: 3}
+    output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
+    volume: 0.7
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
   - name: GuardInjure
     clip: {fileID: 8300000, guid: 36e7c5edf9e37b24e9d7f7c7749f78cf, type: 3}
     output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}

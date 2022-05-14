@@ -48,8 +48,12 @@ public class PlayerController : MonoBehaviour
 
         if (movement.x != 0 || movement.y != 0)
         {
+            if (!audio.IsPlaying("RunningOnGrass"))
+                audio.Play("RunningOnGrass");
             if (!combatInfo.isAttacking && !isDodging)
+            {
                 playerAnimator.ChangeAnimationState(AnimationManager.PLAYER_WALK);
+            }
 
             if (movement.x == 0 && movement.y > 0)
                 rbPlayer.rotation = 0f;
@@ -82,6 +86,11 @@ public class PlayerController : MonoBehaviour
         else if (!combatInfo.isAttacking && !isDodging)
         {
             playerAnimator.ChangeAnimationState(AnimationManager.PLAYER_IDLE);
+        }
+
+        if (movement.x == 0 && movement.y == 0)
+        {
+            audio.Stop("RunningOnGrass");
         }
 
         if (combatInfo.isAttacking && isDodging)
