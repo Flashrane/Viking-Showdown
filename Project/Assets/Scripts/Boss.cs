@@ -21,11 +21,11 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
-        if (boss.enabled == false)
+        if (boss.currentHealth <= 0)
         {
             GameManager.GameHasEnded = true;
-            anim.SetBool("isRunning", false);
-            this.enabled = false;
+            combat.isAttacking = false;
+            aiScript.isRunning = false;
         }
 
         if (combat.isAttacking)

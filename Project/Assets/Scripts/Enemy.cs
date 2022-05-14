@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 
     public EnemyHealthBar healthBar;
     [SerializeField] int maxHealth = 100;
-    int currentHealth;
+    [HideInInspector] public int currentHealth;
 
     float flashTime = 0.1f;
     private SpriteRenderer sprRenderer;
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        healthBar.gameObject.SetActive(currentHealth < maxHealth);
+        healthBar.gameObject.SetActive(currentHealth >= 0 && currentHealth < maxHealth);
     }
 
     public void TakeDamage(int damage)
@@ -109,7 +109,13 @@ public class Enemy : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         GetComponent<EnemyAI>().enabled = false;
         aiScript.DisableSeeker();
-        healthBar.gameObject.SetActive(false);
-        this.enabled = false;
+        
+        if (gameObject.transform.parent.name != "Boss")
+            Invoke("DestroyParent", 7f);
+    }
+
+    void DestroyParent()
+    {
+        Destroy(gameObject.transform.parent.gameObject);        
     }
 }

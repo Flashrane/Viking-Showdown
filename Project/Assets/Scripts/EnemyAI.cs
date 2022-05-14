@@ -31,6 +31,9 @@ public class EnemyAI : MonoBehaviour
 
     float nextAttackTime = 0f;
 
+    [HideInInspector]
+    public bool isRunning = false;
+
     void Start()
     {
         audio = GameObject.Find("AudioManager").GetComponent<AudioManager>();

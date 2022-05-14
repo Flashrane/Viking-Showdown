@@ -24,10 +24,10 @@ public class EnemyCombat : MonoBehaviour
     {
         isAttacking = true;
 
-        if (gameObject.transform.parent.name == "EnemyWarrior")
-            audio.Play("AxeSwing");
-        else if (gameObject.transform.parent.name == "Boss")
+        if (gameObject.transform.parent.name == "Boss")
             audio.Play("SlapSwing");
+        else
+            audio.Play("AxeSwing");
 
         Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
         if (hitPlayer != null)
@@ -36,10 +36,10 @@ public class EnemyCombat : MonoBehaviour
 
             playerCombatInfo.TakeDamage(attackPower);
 
-            if (gameObject.transform.parent.name == "EnemyWarrior")
-                audio.Play("AxeImpactEnemy");
-            else if (gameObject.transform.parent.name == "Boss")
+            if (gameObject.transform.parent.name == "Boss")
                 audio.Play("SlapImpact");
+            else
+                audio.Play("AxeImpactEnemy");
         }
 
 

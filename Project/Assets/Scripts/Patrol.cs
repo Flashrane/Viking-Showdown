@@ -28,6 +28,7 @@ public class Patrol : MonoBehaviour
     {
         if (!isMoveCRRunning)
         {
+            aiScript.isRunning = true;
             transform.position = Vector2.MoveTowards(transform.position, moveSpots[randomSpot].position, speed * Time.deltaTime);
             Vector3 moveDirection = moveSpots[randomSpot].position - transform.position;
             aiScript.Rotate(moveDirection, 1080);
@@ -44,6 +45,7 @@ public class Patrol : MonoBehaviour
     IEnumerator StopMoving()
     {
         isMoveCRRunning = true;
+        aiScript.isRunning = false;
 
         yield return new WaitForSeconds(Random.Range(lowestWaitTime, highestWaitTime));
         randomSpot = Random.Range(0, moveSpots.Length);

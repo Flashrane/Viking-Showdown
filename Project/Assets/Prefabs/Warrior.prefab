@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 2795407949305288571}
   - component: {fileID: 6683662985915822000}
   - component: {fileID: -7383363178439514315}
+  - component: {fileID: 4450860379593528117}
+  - component: {fileID: 2318276209709389155}
   m_Layer: 6
   m_Name: Warrior
   m_TagString: Enemy
@@ -81,8 +83,8 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 466db7ecfee5bae4eb457f2a694a3da4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
-  m_FlipY: 1
+  m_FlipX: 0
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 4.19, y: 4.19}
   m_AdaptiveModeThreshold: 0.5
@@ -320,3 +322,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &4450860379593528117
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2922721144471429979}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 23b015ff5a0e1db49b1148f64312100d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2318276209709389155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2922721144471429979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10eabfd3f34ec4e4ca2ba93bd153ad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

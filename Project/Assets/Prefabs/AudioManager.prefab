@@ -196,12 +196,12 @@ MonoBehaviour:
     output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
     volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - name: GuardSurprise
     clip: {fileID: 8300000, guid: 38961581a2ba882408c349ef93c1b78d, type: 3}
     output: {fileID: 24300002, guid: 348997ce69c78d549b59d023819d9b17, type: 2}
     volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
