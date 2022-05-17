@@ -10,17 +10,20 @@ public class Cheat : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            if (!toggled)
+            if (Input.GetKeyDown(KeyCode.C))
             {
-                toggled = true;
-                Debug.Log("Cheating enabled");
-            }
-            else
-            {
-                toggled = false;
-                Debug.Log("Cheating disabled");
+                if (!toggled)
+                {
+                    toggled = true;
+                    Debug.Log("Cheating enabled");
+                }
+                else
+                {
+                    toggled = false;
+                    Debug.Log("Cheating disabled");
+                }
             }
         }
 
@@ -33,12 +36,12 @@ public class Cheat : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            PlayerController.movementSpeed += 50f;
+            PlayerController.movementSpeed += 100f;
             Debug.Log("Movement Speed: " + PlayerController.movementSpeed);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            PlayerCombat.attackPower += 20;
+            PlayerCombat.attackPower += 50;
             Debug.Log("Attack Power: " + PlayerCombat.attackPower);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -58,5 +61,6 @@ public class Cheat : MonoBehaviour
                 script.TakeDamage(script.maxHealth);
             }
         }
+        Enemy.EnemiesRemaining = 0;
     }
 }

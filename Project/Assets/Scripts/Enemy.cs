@@ -103,7 +103,8 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        EnemiesRemaining--;
+        if (gameObject.transform.parent.gameObject.name != "Boss")
+            EnemiesRemaining--;
 
         sprRenderer.color = Color.black;
         GetComponent<Collider2D>().enabled = false;

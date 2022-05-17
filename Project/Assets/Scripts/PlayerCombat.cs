@@ -188,7 +188,6 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-
     void Die()
     {
         GameManager.GameHasEnded = true;

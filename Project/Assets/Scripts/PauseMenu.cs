@@ -74,6 +74,7 @@ public class PauseMenu : MonoBehaviour
         Cheat.toggled = false;
         PlayerController.movementSpeed = PlayerController.normalMovementSpeed;
         PlayerCombat.attackPower = PlayerCombat.normalAttackPower;
+        Enemy.EnemiesRemaining = 0;
     }
 
     public void ExitGame()

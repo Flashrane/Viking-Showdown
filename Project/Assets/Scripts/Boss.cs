@@ -10,6 +10,8 @@ public class Boss : MonoBehaviour
     EnemyCombat combat;
     Rigidbody2D rb;
 
+    bool isDead = false;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -21,12 +23,17 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
+        if (isDead)
+            return;
+
         if (boss.currentHealth <= 0)
         {
             GameManager.GameHasEnded = true;
             combat.isAttacking = false;
             aiScript.isRunning = false;
-            this.enabled = false;
+            anim.SetBool("isAttacking", false);
+            anim.SetBool("isRunning", false);
+            isDead = true;
         }
 
         if (combat.isAttacking)
