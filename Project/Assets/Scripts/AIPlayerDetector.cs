@@ -46,7 +46,7 @@ public class AIPlayerDetector : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        UnityEditor.Handles.DrawWireDisc(castPoint.position, Vector3.forward, radius);
+        //UnityEditor.Handles.DrawWireDisc(castPoint.position, Vector3.forward, radius);
 
         Vector3 angle01 = DirectionFromAngle(-castPoint.eulerAngles.z, -angle / 2);
         Vector3 angle02 = DirectionFromAngle(-castPoint.eulerAngles.z, angle / 2);
