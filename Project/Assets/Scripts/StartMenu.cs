@@ -23,6 +23,7 @@ public class StartMenu : MonoBehaviour
 
     void Start()
     {
+        audio.Play("StartMenuMusic");
         Invoke("EnableHoverSound", 2f);
     }
 

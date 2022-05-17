@@ -38876,6 +38876,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7003525030372645362, guid: a930768e5d33cb247929e31b280a292e, type: 3}
+      propertyPath: objective
+      value: 
+      objectReference: {fileID: 1497887263}
+    - target: {fileID: 7003525030372645362, guid: a930768e5d33cb247929e31b280a292e, type: 3}
       propertyPath: stillGuards.Array.size
       value: 8
       objectReference: {fileID: 0}

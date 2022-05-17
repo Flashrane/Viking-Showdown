@@ -6,6 +6,8 @@ public class Cheat : MonoBehaviour
 {
     public static bool toggled = false;
 
+    [SerializeField] Objective objective;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.C))
@@ -38,6 +40,10 @@ public class Cheat : MonoBehaviour
         {
             PlayerCombat.attackPower += 20;
             Debug.Log("Attack Power: " + PlayerCombat.attackPower);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            objective.NextObjective();
         }
     }
 
