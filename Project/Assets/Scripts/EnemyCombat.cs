@@ -20,7 +20,7 @@ public class EnemyCombat : MonoBehaviour
         playerCombatInfo = GameObject.Find("Player").GetComponent<PlayerCombat>();
     }
 
-    public void Attack()
+    public void InitiateAttacking()
     {
         isAttacking = true;
 
@@ -28,7 +28,10 @@ public class EnemyCombat : MonoBehaviour
             audio.Play("SlapSwing");
         else
             audio.Play("AxeSwing");
+    }
 
+    public void Attack()
+    {
         Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
         if (hitPlayer != null)
         {
@@ -41,12 +44,9 @@ public class EnemyCombat : MonoBehaviour
             else
                 audio.Play("AxeImpactEnemy");
         }
-
-
-        Invoke("AttackCompleted", attackSpeed);
 }
 
-    void AttackCompleted()
+    public void AttackCompleted()
     {
         isAttacking = false;
     }

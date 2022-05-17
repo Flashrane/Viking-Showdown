@@ -93,7 +93,6 @@ GameObject:
   - component: {fileID: 688703246172545506}
   - component: {fileID: 9078712672170926786}
   - component: {fileID: 5004455999432388170}
-  - component: {fileID: 3974170532383093651}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -227,18 +226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9815904bc6f5d3f4a846be3b219a7075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3974170532383093651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655009714753927895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcbea7da7fadc7e4fb2bb16323593f7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6474693568471278808
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +239,6 @@ GameObject:
   - component: {fileID: 6474693568471278813}
   - component: {fileID: 6474693568471278810}
   - component: {fileID: 3377252945984768226}
-  - component: {fileID: 8438620894662446343}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -384,18 +370,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9815904bc6f5d3f4a846be3b219a7075, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8438620894662446343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6474693568471278808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcbea7da7fadc7e4fb2bb16323593f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6474693568992714905
@@ -861,7 +835,6 @@ GameObject:
   - component: {fileID: 6474693569266261512}
   - component: {fileID: 6474693569266261513}
   - component: {fileID: 2979146931771230580}
-  - component: {fileID: 9131044522403994730}
   m_Layer: 5
   m_Name: ControlsButton
   m_TagString: Untagged
@@ -995,18 +968,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9815904bc6f5d3f4a846be3b219a7075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9131044522403994730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6474693569266261511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcbea7da7fadc7e4fb2bb16323593f7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6474693569438555984
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,7 +981,6 @@ GameObject:
   - component: {fileID: 6474693569438555989}
   - component: {fileID: 6474693569438555986}
   - component: {fileID: 2903244469733996256}
-  - component: {fileID: 2664669617525370119}
   m_Layer: 5
   m_Name: AudioButton
   m_TagString: Untagged
@@ -1142,18 +1102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9815904bc6f5d3f4a846be3b219a7075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2664669617525370119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6474693569438555984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcbea7da7fadc7e4fb2bb16323593f7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6474693569995443545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,7 +1115,6 @@ GameObject:
   - component: {fileID: 6474693569995443546}
   - component: {fileID: 6474693569995443547}
   - component: {fileID: 8534893162127732597}
-  - component: {fileID: 5442560822283836637}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1299,18 +1246,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9815904bc6f5d3f4a846be3b219a7075, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5442560822283836637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6474693569995443545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcbea7da7fadc7e4fb2bb16323593f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6474693570191929328

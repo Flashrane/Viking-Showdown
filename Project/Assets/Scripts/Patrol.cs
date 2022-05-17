@@ -16,6 +16,8 @@ public class Patrol : MonoBehaviour
     Coroutine move;
     bool isMoveCRRunning = false;
 
+    bool isColliding = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,7 +37,7 @@ public class Patrol : MonoBehaviour
         }
 
         float distanceToSpot = Vector2.Distance(transform.position, moveSpots[randomSpot].position);
-        if (distanceToSpot < .2f)
+        if (distanceToSpot < .2f || isColliding)
         {
             if (move == null)
                 move = StartCoroutine(StopMoving());
@@ -54,9 +56,14 @@ public class Patrol : MonoBehaviour
         isMoveCRRunning = false;
     }
 
-    // if it hits a wall, this prevent it from getting stuck there
+    // if it hits a wall, this prevents it from getting stuck there
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        StartCoroutine(StopMoving());
+        isColliding = true;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        isColliding = false;
     }
 }

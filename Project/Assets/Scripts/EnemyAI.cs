@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     Seeker seeker;
     
     Patrol patrol;
-    [SerializeField] bool isPatroller;
+    public bool isPatroller;
     bool isPatrolling = true;
 
     public bool canSeePlayer = false;
@@ -66,7 +66,7 @@ public class EnemyAI : MonoBehaviour
 
                     if (gameObject.transform.parent.name == "Boss")
                         audio.Play("BossSurprise");
-                    else if (gameObject.transform.parent.name == "EnemyWarrior")
+                    else if (gameObject.transform.parent.name.Contains("EnemyWarrior"))
                         audio.Play("GuardSurprise");
                 }
             }
@@ -83,8 +83,8 @@ public class EnemyAI : MonoBehaviour
 
             if (IsPlayerInAttackRange() && nextAttackTime <= Time.time)
             {
-                combat.Attack();
-                nextAttackTime = Time.time + (1 / combat.attackSpeed);
+                combat.InitiateAttacking();
+                nextAttackTime = Time.time + (1f / combat.attackSpeed);
             }
         }
     }

@@ -171,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   maxHealth: 100
+  currentHealth: 0
 --- !u!114 &-2026404664867432732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +189,7 @@ MonoBehaviour:
   isPatroller: 0
   canSeePlayer: 0
   stopMovingDistance: 1.3
+  isRunning: 0
 --- !u!114 &2795407949305288571
 MonoBehaviour:
   m_ObjectHideFlags: 0
