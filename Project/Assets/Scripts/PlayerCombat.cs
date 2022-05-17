@@ -22,7 +22,7 @@ public class PlayerCombat : MonoBehaviour
 
     [SerializeField] float attackRange;
     [SerializeField] float attackSpeed;
-    [SerializeField] int attackPower;
+    public static int attackPower = 25;
     [SerializeField] float criticalHitChance;
     [SerializeField] float criticalHitMultiplier;
     public bool isAttacking = false;

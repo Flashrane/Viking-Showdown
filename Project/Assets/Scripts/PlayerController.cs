@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public AnimationManager axeAnimator;
     public StaminaBar staminaBar;
 
-    [SerializeField] float movementSpeed = 330.0f;
+    public static float movementSpeed = 200f;
     public float slowingStrength = 1f; // 1 is neutral in multiplications
     [SerializeField] float dodgeForce = 3f;
     float dodgeCoolDown = 0.3f;

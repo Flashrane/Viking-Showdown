@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     new AudioManager audio;
 
     public EnemyHealthBar healthBar;
-    [SerializeField] int maxHealth = 100;
+    public int maxHealth = 100;
     [HideInInspector] public int currentHealth;
 
     float flashTime = 0.1f;

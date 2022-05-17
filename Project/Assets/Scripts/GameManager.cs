@@ -28,7 +28,8 @@ public class GameManager : MonoBehaviour
     {
         if (!GameHasEnded)
             return;
-        
+
+        Objective.sceneIndex = 0;
         gameplay.SetActive(false);
         shadow.SetActive(true);
         Invoke("ShowMenuButton", 3f);
