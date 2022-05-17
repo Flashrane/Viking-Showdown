@@ -22,7 +22,8 @@ public class PlayerCombat : MonoBehaviour
 
     [SerializeField] float attackRange;
     [SerializeField] float attackSpeed;
-    public static int attackPower = 25;
+    public static int normalAttackPower = 18;
+    public static int attackPower;
     [SerializeField] float criticalHitChance;
     [SerializeField] float criticalHitMultiplier;
     public bool isAttacking = false;
@@ -38,6 +39,7 @@ public class PlayerCombat : MonoBehaviour
         axeAnimator = movementInfo.axeAnimator;
         staminaBar = movementInfo.staminaBar;
         sprRenderer = GetComponent<SpriteRenderer>();
+        attackPower = normalAttackPower;
     }
 
     void Update()

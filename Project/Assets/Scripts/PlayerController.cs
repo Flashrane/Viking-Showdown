@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
     public AnimationManager axeAnimator;
     public StaminaBar staminaBar;
 
-    public static float movementSpeed = 200f;
+    public static float normalMovementSpeed = 200f;
+    public static float movementSpeed;
     public float slowingStrength = 1f; // 1 is neutral in multiplications
     [SerializeField] float dodgeForce = 3f;
     float dodgeCoolDown = 0.3f;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
         rbPlayer = GetComponent<Rigidbody2D>();
         combatInfo = GetComponent<PlayerCombat>();
 
+        movementSpeed = normalMovementSpeed;
         rbEnemy = null;
 
         playerAnimator.ChangeAnimationState(AnimationManager.PLAYER_IDLE);
