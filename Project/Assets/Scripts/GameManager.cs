@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(GameHasEnded);
         if (!GameHasEnded)
             return;
 

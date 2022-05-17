@@ -26,6 +26,7 @@ public class Boss : MonoBehaviour
             GameManager.GameHasEnded = true;
             combat.isAttacking = false;
             aiScript.isRunning = false;
+            this.enabled = false;
         }
 
         if (combat.isAttacking)
