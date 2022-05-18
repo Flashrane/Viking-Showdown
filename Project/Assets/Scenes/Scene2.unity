@@ -52942,6 +52942,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2514968303298103228}
   - component: {fileID: 2514968303298103229}
+  - component: {fileID: 2514968303298103232}
   - component: {fileID: 2514968303298103226}
   m_Layer: 0
   m_Name: HealthBar
@@ -52950,6 +52951,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2514968303298103232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2514968303298103231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80569a846a5a0874c82eada53e35398e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthInfo: {fileID: 1399375521850188796}
 --- !u!1 &2514968303314968985
 GameObject:
   m_ObjectHideFlags: 0
@@ -52974,7 +52988,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2514968303314968985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.93, y: 19.6, z: 192.01}
+  m_LocalPosition: {x: 2.93, y: 20.08, z: 192.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 929283653418304792}
@@ -55362,7 +55376,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   radius: 4
-  angle: 160
+  angle: 260
 --- !u!114 &9108135169242589019
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -72,6 +72,7 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("StartMenu");
 
         Cheat.toggled = false;
+        GameManager.isPlayerAlive = true;
         PlayerController.movementSpeed = PlayerController.normalMovementSpeed;
         PlayerCombat.attackPower = PlayerCombat.normalAttackPower;
         Enemy.EnemiesRemaining = 0;
