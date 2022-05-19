@@ -7,7 +7,7 @@ public class BossHealthRegen : MonoBehaviour
     EnemyHealthBar healthBar;
     [SerializeField] Enemy healthInfo;
 
-    WaitForSeconds regenTick = new WaitForSeconds(.15f);
+    WaitForSeconds regenTick = new WaitForSeconds(.1f);
 
     bool isRegenCRRunning = false;
 
