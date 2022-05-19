@@ -22,6 +22,11 @@ public class Enemy : MonoBehaviour
 
     public static int EnemiesRemaining = 0;
 
+    public bool isInCombat = false;
+    
+    [HideInInspector]
+    public float nextOutOfCombatTime = 0f;
+
     void Start()
     {
         aiScript = GetComponent<EnemyAI>();
@@ -40,10 +45,18 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         healthBar.gameObject.SetActive(currentHealth >= 0 && currentHealth < maxHealth);
+
+        if (Time.time >= nextOutOfCombatTime)
+        {
+            isInCombat = false;
+        }
     }
 
     public void TakeDamage(int damage)
     {
+        isInCombat = true;
+        nextOutOfCombatTime = Time.time + 3f;
+
         currentHealth -= damage;
         healthBar.SetSize((float)currentHealth/maxHealth); // normalize currentHealth value to stay between 0 and 1
 

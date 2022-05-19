@@ -236,7 +236,8 @@ public class PlayerController : MonoBehaviour
         {
             if (Objective.objectiveIndex == 3 && collision.name == "bossFightCollider")
             {
-                bossFightCollider.isTrigger = false;
+                if (transform.position.y > bossFightCollider.transform.position.y)
+                    bossFightCollider.isTrigger = false;
             }
         }
     }

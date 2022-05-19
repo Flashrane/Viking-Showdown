@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyCombat : MonoBehaviour
 {
     new AudioManager audio;
+    Enemy enemy;
     PlayerCombat playerCombatInfo;
     public Transform attackPoint;
     [SerializeField] int attackPower = 10;
@@ -17,6 +18,7 @@ public class EnemyCombat : MonoBehaviour
     void Start()
     {
         audio = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        enemy = GetComponent<Enemy>();
         playerCombatInfo = GameObject.Find("Player").GetComponent<PlayerCombat>();
     }
 
@@ -36,6 +38,9 @@ public class EnemyCombat : MonoBehaviour
         if (hitPlayer != null)
         {
             Debug.Log("player got hit");
+
+            enemy.isInCombat = true;
+            enemy.nextOutOfCombatTime = Time.time + 3f;
 
             playerCombatInfo.TakeDamage(attackPower);
 

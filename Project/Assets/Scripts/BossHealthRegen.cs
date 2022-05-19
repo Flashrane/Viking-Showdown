@@ -7,8 +7,9 @@ public class BossHealthRegen : MonoBehaviour
     EnemyHealthBar healthBar;
     [SerializeField] Enemy healthInfo;
 
-    WaitForSeconds regenTick = new WaitForSeconds(.3f);
-    Coroutine regen;
+    WaitForSeconds regenTick = new WaitForSeconds(.15f);
+
+    bool isRegenCRRunning = false;
 
     void Start()
     {
@@ -17,21 +18,23 @@ public class BossHealthRegen : MonoBehaviour
 
     void Update()
     {
-        if (healthInfo.currentHealth < healthInfo.maxHealth)
+        if (healthInfo.currentHealth < healthInfo.maxHealth && !healthInfo.isInCombat) // not the best practice
         {
-            if (regen == null)
-                regen = StartCoroutine(RegenHealth());
+            if (isRegenCRRunning)
+                return;
+            StartCoroutine(RegenHealth());
         }
     }
 
     IEnumerator RegenHealth()
     {
-        while (healthInfo.currentHealth < healthInfo.maxHealth)
+        isRegenCRRunning = true;
+        while (healthInfo.currentHealth < healthInfo.maxHealth && !healthInfo.isInCombat)
         {
-            healthInfo.currentHealth += 2;
+            healthInfo.currentHealth += 10;
             healthBar.SetSize((float)healthInfo.currentHealth / healthInfo.maxHealth);
             yield return regenTick;
         }
-        regen = null;
+        isRegenCRRunning = false;
     }
 }

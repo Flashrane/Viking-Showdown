@@ -170,7 +170,7 @@ public class PlayerCombat : MonoBehaviour
     public void TakeDamage(int damage)
     {
         isInCombat = true;
-        nextOutOfCombatTime = Time.time + 3f;
+        nextOutOfCombatTime = Time.time + 5f;
 
         healthBar.health -= damage;
         healthBar.healthBar.value = healthBar.health;

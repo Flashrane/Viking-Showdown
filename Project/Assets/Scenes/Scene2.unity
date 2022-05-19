@@ -52314,7 +52314,7 @@ MonoBehaviour:
   attackPoint: {fileID: 2514968302207232228}
   attackPower: 22
   attackRange: 2
-  attackSpeed: 0.2
+  attackSpeed: 0.25
   isAttacking: 0
   playerLayer:
     serializedVersion: 2
@@ -52466,6 +52466,8 @@ MonoBehaviour:
   healthBar: {fileID: 2514968303298103229}
   maxHealth: 1500
   currentHealth: 0
+  isInCombat: 0
+  nextOutOfCombatTime: 0
 --- !u!1 &1656512040780083537
 GameObject:
   m_ObjectHideFlags: 0
